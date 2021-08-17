@@ -1,0 +1,19 @@
+nav{
+  background: #fafafa;
+  height: 80px;
+  width: 100%;
+}
+.logo{
+  width: 70%;
+	height: 60px;
+  display: flex;
+	justify-content: flex-start;
+}
+.small-logo{
+  
+    height: 90%;
+    padding: 0 30px;
+    font-weight: bold
+  
+}
+ 

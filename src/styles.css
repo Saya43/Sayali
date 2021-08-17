@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'WorkSans-Regular';
+    src: url('./assets/fonts/WorkSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'WorkSans-Bold';
+    src: url('./assets/fonts/WorkSans-Bold.ttf');
+}
+html{
+    overflow-y: hidden;
+
+}
+body{
+    margin: 0;
+    background-color: #fafafa; 
+
+}
+input:focus, button:focus{
+    box-shadow: none !important;
+    outline: 0 !important;
+}
+/* Home component css */
+.heading{
+    font-family: 'WorkSans-Bold' !important;
+    font-size: 1.2rem !important;
+}
+.text{
+    font-family: 'WorkSans-Regular';
+    font-size:0.8rem;
+}
+
+.card{
+    border-radius: 15px;
+	background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+     padding: 8% 6%; 
+     padding-top: 15px;
+    /* padding:4rem; */
+    margin:10px 10px 30px;
+    box-shadow: 2px 2px 3px 1px rgb(191 191 191);
+    height:15rem;
+
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100% !important;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
