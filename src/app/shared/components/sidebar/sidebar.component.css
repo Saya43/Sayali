@@ -1,0 +1,65 @@
+.sidenav_container {
+    min-width: 70px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.small-logo{
+    width: 80px;
+}
+.big-logo{
+    width: 80%;
+}
+.menu-icon-block{
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 30px;
+}
+.hamburger{
+    width: 25px;
+    height: 25px;
+    background-image: url('../../../../assets/Images/hamburger-icon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.menu-items{
+    display: flex;
+    border-radius: 10px;
+    padding: 4% 0 4% 5%;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.menu-item-background-hover{
+    background-color: #f6f6f6;
+}
+.menu-item-hover{
+    font-family: 'WorkSans-Bold';
+    color: #9FC356;
+}
+.menu-list{
+    font-size: 0.85rem;
+    font-family: 'WorkSans-Regular';
+    color: black;
+    display: flex;
+    align-items: center;
+}
+.menu-icon{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+}
+.selected{
+    background-color: #9FC356;
+}
+.selected-icon{
+    background-color: #9FC356;
+    border-radius: 10px;
+}
+.menu-item-selected{
+    font-family: 'WorkSans-Bold';
+    color: white;
+}

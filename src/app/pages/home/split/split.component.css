@@ -1,0 +1,113 @@
+.align{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+box-shadow: none;
+
+}
+
+.file1{
+  width: 1000px;
+  height: 300px;
+  border: none;
+  border-radius: 30px;
+  border-color: rgb(247, 253, 251);
+  border-width: 5px;
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 15px;
+  border-style: ridge;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.icon{
+width: 80px;
+height: 70px;
+background-color: aliceblue;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  margin-top: 30px; 
+}
+
+.demo{
+  text-align: center;
+  word-break: break-word;
+  width: 90%;
+  padding-top: 5%;
+}
+.demo2{
+  
+  border-radius: 2px;
+  background-image: linear-gradient(#b82f0d,#08320b);
+}
+
+input[type=file]::file-selector-button {
+  height: 50px;
+  width: 175px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: transparent;
+  /* background-color: #00d3ee;
+  background-image: linear-gradient(to right #baf8f4); */
+  font-family: 'STIX Two Text', serif;
+  margin-right:10px;
+  /*color:white;*/
+  font-weight: 600;
+
+}
+.example-button-row button,
+.example-button-row a {
+margin-right: 8px;
+}
+
+.saya{
+  width: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 35px;
+}
+
+
+.buybtn{
+margin-left: 12px;
+} 
+
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px; 
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+
+.icon1 {
+
+margin-left :850px;
+margin-top: 10px;
+margin-bottom: 6px;
+position: fixed;
+justify-content: center;
+font-size: 28px;
+/* border:none;
+box-shadow: none; */
+}  
+
+.icon2{
+outline: none;
+border:none;
+}
+

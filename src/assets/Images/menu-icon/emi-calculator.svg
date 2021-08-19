@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="EMI_Calculator" data-name="EMI Calculator" transform="translate(-31 -140)">
+    <rect id="Rectangle_119" data-name="Rectangle 119" width="40" height="40" rx="10" transform="translate(31 140)" fill="#9fc356" opacity="0.3"/>
+    <g id="business_idea" data-name="business idea" transform="translate(43 150)">
+      <g id="Group_309" data-name="Group 309" transform="translate(3.556 15)">
+        <path id="Path_37" data-name="Path 37" d="M7,18v2.5A2.591,2.591,0,0,0,9.667,23h3.556a2.591,2.591,0,0,0,2.667-2.5V18Z" transform="translate(-7 -18)" fill="#9fc356"/>
+      </g>
+      <g id="Group_310" data-name="Group 310">
+        <path id="Path_38" data-name="Path 38" d="M6.471,15h9.058A4.46,4.46,0,0,1,16.8,12.667,7.217,7.217,0,0,0,19,7.5,7.771,7.771,0,0,0,11,0,7.771,7.771,0,0,0,3,7.5a7.217,7.217,0,0,0,2.2,5.167A4.466,4.466,0,0,1,6.471,15ZM11,8.333a2.591,2.591,0,0,1-2.667-2.5,2.514,2.514,0,0,1,1.778-2.347V2.5a.891.891,0,0,1,1.778,0v.833h.889a.862.862,0,0,1,.889.833A.862.862,0,0,1,12.778,5H11a.863.863,0,0,0-.889.833A.863.863,0,0,0,11,6.667a2.591,2.591,0,0,1,2.667,2.5,2.514,2.514,0,0,1-1.778,2.347V12.5a.891.891,0,0,1-1.778,0v-.833H9.222a.835.835,0,1,1,0-1.667H11a.835.835,0,1,0,0-1.667Z" transform="translate(-3)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

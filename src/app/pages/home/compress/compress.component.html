@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="align">
+<h1>Merge PDF Files</h1>
+<form>
+    <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <input type="file" id="fileUpload" role="button" multiple class="form align btn btn-default"  (change)="onFileChange($event)" >
+</form>
+<h1 >{{files}}</h1>
+    <div *ngIf="isShown" class="row container-fluid file1" id="divshow" >
+        <div class="icon1">
+            <span>
+                    <i class="fas fa-sort-alpha-down background"  role="button"></i>
+                    <button type="button" class="btn btn-dark buybtn">Merge</button>
+            </span>
+        </div>
+            <div *ngFor="let file of files" class="saya">
+                <div class="icon"><i class="fas fa-file-alt"></i></div>
+                <div  class="demo">{{file}}</div>
+            </div>
+        </div>
+    </div>
+<app-footer></app-footer>

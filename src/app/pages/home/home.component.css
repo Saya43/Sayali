@@ -1,0 +1,68 @@
+/* .body {
+    background-color: #eee
+} */
+
+.card:hover {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 6px #9fc356;
+}
+/* 
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+} */
+.cards-block{
+    overflow-y: auto;
+    max-height: 80vh;
+    padding:0 10%;
+}
+.icon {
+    width: 40px; 
+    height: 40px;
+    background-color: #eee;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+
+}
+
+a.active,a:hover{
+    background: #9fc356;
+    transition: .5s;
+  }
+
+
+/* 
+.badge span {
+    background-color: #fffbec;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #fed85d;
+    justify-content: center;
+    align-items: center
+*/
+
+.progress {
+    height: 10px;
+    width:100%;
+    border-radius: 10px
+}
+
+.progress div {
+    background-color: #9fc356;
+}
+
+/* .text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+} */

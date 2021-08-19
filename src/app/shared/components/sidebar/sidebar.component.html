@@ -1,0 +1,30 @@
+<div class="sidenav_container"  [@onSideNavChange]="sideNavState ? 'open' : 'close'">
+    <div class="d-flex justify-content-center pt-2 pb-3">
+        <img src="assets/Images/Logo.svg" *ngIf="sideNavState === false" class="small-logo" />
+        <img src="assets/Images/Godrej Logo-04.svg" *ngIf="sideNavState === true" class="big-logo" />
+    </div>
+    <mat-nav-list>
+        <div
+            class="menu-items"
+            [id]="page.id" mat-list-item *ngFor="let page of pages; let i = index"
+            (click)="showMenuItemContent(page.id, page.name)"
+            (mouseenter)="menuItemHoverEnter(page.id)"
+            (mouseleave)="menuItemHoverLeft(page.id)"
+        >
+            <div class="menu-icon">
+                <img
+                [matTooltip]="page.name"
+                matTooltipPosition="above"
+                matTooltipClass="custom-tooltip"
+                [src]="page?.icon" [id]="page.id+30" [alt]="page?.name" />
+            </div>
+            <div class="menu-list">
+                <span class="pl-2" [id]="page.id+20" [@animateText]="linkText ? 'show' : 'hide'">{{ page?.name }} </span>
+            </div>
+        </div>
+    </mat-nav-list>
+
+    <div class="menu-icon-block d-flex justify-content-center">
+        <div class="hamburger" (click)="onSidenavToggle()"></div>
+    </div>
+</div>

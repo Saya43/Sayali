@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="align">
+<h1>Split PDF Files</h1>
+<form>
+    <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <input type="file" id="fileUpload" role="button" ssclass="form align btn btn-default"  (change)="onFileChange($event)" >
+</form>
+<h1 >{{files}}</h1>
+    <div *ngIf="isShown" class="row container-fluid file1" id="divshow" >
+        <div class="icon1">
+            <span>
+                    <!-- <i  class="fas fa-filter "  role="button"></i>  -->
+                    <button type="button" (click)="openFormModal1(modalForm1)"><i class="fa fa-filter icon2"></i> </button>
+                    <button type="button" class="btn btn-dark buybtn">Split</button>
+            </span>
+        </div>
+            <div *ngFor="let file of files" class="saya">
+                <div class="icon"><i class="fas fa-file-alt"></i></div>
+                <div  class="demo">{{file}}</div>
+            </div>
+        </div>
+    </div>
+<ng-template #modalForm1>
+    <div class=" modal-header">
+        <h6 class="modal-title" id="modal-title-default">
+          Filters
+        </h6>
+        <button
+          aria-label="Close"
+          class=" close"
+          data-dismiss="modal"
+          type="button"
+          (click)="formModal1.hide()"
+        >
+          <span aria-hidden="true"> × </span>
+        </button>
+      </div>
+      <div class="modal-body px-4 pt-4"> </div>
+    <div class="d-flex justify-content-center modal-footer" >
+        <button type="button" (click)="formModal1.hide()">
+            OK
+          </button>
+          
+    </div>
+  </ng-template>
+  
+    <app-footer></app-footer>

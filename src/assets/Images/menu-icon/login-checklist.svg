@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g id="Login_Checklist" data-name="Login Checklist" transform="translate(-26.652 -136)">
+    <rect id="Rectangle_116" data-name="Rectangle 116" width="40" height="40" rx="10" transform="translate(26.652 136)" fill="#9fc356" opacity="0.3"/>
+    <g id="target" transform="translate(36.652 146)">
+      <path id="Path_34" data-name="Path 34" d="M9.965,7.586a2.384,2.384,0,0,1,2.063,1.2.794.794,0,0,0,1.521-.324.8.8,0,0,0-.1-.379,3.965,3.965,0,1,0-5.374,5.374.83.83,0,0,0,.387.1.793.793,0,0,0,.347-1.5,2.379,2.379,0,0,1,1.151-4.46Z" transform="translate(-0.841 -0.841)" fill="#fff"/>
+      <path id="Path_35" data-name="Path 35" d="M9.667,16.732l-.46.008A7.533,7.533,0,1,1,16.74,9.207l-.008.46a.837.837,0,1,0,1.674,0l.008-.46a9.207,9.207,0,1,0-9.207,9.207l.46-.008a.837.837,0,0,0,0-1.674Z" fill="#fff"/>
+      <path id="Path_36" data-name="Path 36" d="M20.585,13.627l-9.533-3.6a.794.794,0,0,0-1.022,1.022l3.6,9.533a.8.8,0,0,0,.743.512h.019a.793.793,0,0,0,.735-.549l1.325-4.1,4.1-1.325a.793.793,0,0,0,.036-1.5Z" transform="translate(-1.098 -1.098)" fill="#9fc356"/>
+    </g>
+  </g>
+</svg>
