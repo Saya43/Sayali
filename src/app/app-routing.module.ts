@@ -14,14 +14,13 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  {
-    path:'home',
-    loadChildren:()=>import('./pages/home/home.module').then(mod=>mod.HomeModule)
-  },
+
+
   {
     path:'main',
-    component:MainComponent
-  }
+    component:MainComponent,
+    loadChildren:()=>import('./pages/main/main.module').then(mod=>mod.MainModule)
+  },
 ];
 
 @NgModule({

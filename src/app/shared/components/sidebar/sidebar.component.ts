@@ -29,23 +29,23 @@ export class SidebarComponent implements OnInit {
   currentUrlName: any;
 
   public pages: Page[] = [
-    {id:1, name: 'Dashboard', link:'/main-screen/dashboard', icon: 'assets/Images/menu-icon/dashboard.svg'},
-    {id:2, name: 'Login Checklist', link:'/main-screen/login-checklist', icon: 'assets/Images/menu-icon/login-checklist.svg'},
-    {id:3, name: 'Product Features', link:'/main-screen/product-features', icon: 'assets/Images/menu-icon/product-features.svg'},
-    {id:4, name: 'Projects', link:'/main-screen/projects', icon: 'assets/Images/menu-icon/poc.svg'},
-    {id:5, name: 'Calculators', link:'/main-screen/calculators', icon: 'assets/Images/menu-icon/emi-calculator.svg'},
-    {id:6, name: 'Lead Management', link:'/main-screen/lead-management', icon: 'assets/Images/menu-icon/lead-management.svg'},
-    {id:7, name: 'Offers', link:'/main-screen/offers', icon: 'assets/Images/menu-icon/offers.svg'}
+    {id:1, name: 'Dashboard', link:'/main/merge', icon: 'assets/Images/menu-icon/merge.png'},
+    {id:2, name: 'Login Checklist', link:'/main/split', icon: 'assets/Images/menu-icon/login-checklist.svg'},
+    {id:3, name: 'Product Features', link:'/main/compress', icon: 'assets/Images/menu-icon/product-features.svg'},
+    // {id:4, name: 'Projects', link:'/main-screen/projects', icon: 'assets/Images/menu-icon/poc.svg'},
+    // {id:5, name: 'Calculators', link:'/main-screen/calculators', icon: 'assets/Images/menu-icon/emi-calculator.svg'},
+    // {id:6, name: 'Lead Management', link:'/main-screen/lead-management', icon: 'assets/Images/menu-icon/lead-management.svg'},
+    // {id:7, name: 'Offers', link:'/main-screen/offers', icon: 'assets/Images/menu-icon/offers.svg'}
   ]
 
   public icons : Icons[] = [
-    {id:1, icon: 'assets/Images/menu-icon/dashboard.png'},
+    {id:1, icon: 'assets/Images/menu-icon/merge.png'},
     {id:2, icon: 'assets/Images/menu-icon/login-checklist.png'},
     {id:3, icon: 'assets/Images/menu-icon/product-features.png'},
-    {id:4, icon: 'assets/Images/menu-icon/poc.png'},
-    {id:5, icon: 'assets/Images/menu-icon/emi-calculator.png'},
-    {id:6, icon: 'assets/Images/menu-icon/lead-management.png'},
-    {id:7, icon: 'assets/Images/menu-icon/offers.png'}
+    // {id:4, icon: 'assets/Images/menu-icon/poc.png'},
+    // {id:5, icon: 'assets/Images/menu-icon/emi-calculator.png'},
+    // {id:6, icon: 'assets/Images/menu-icon/lead-management.png'},
+    // {id:7, icon: 'assets/Images/menu-icon/offers.png'}
   ]
 
   // Menu item variables

@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(window.location.pathname.split('2')[0].split('/')[1])
   }
 
 }
