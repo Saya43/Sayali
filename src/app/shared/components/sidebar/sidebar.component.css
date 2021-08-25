@@ -15,6 +15,7 @@
     position: absolute;
     bottom: 0;
     padding-bottom: 30px;
+    
 }
 .hamburger{
     width: 25px;
@@ -63,3 +64,10 @@
     font-family: 'WorkSans-Bold';
     color: white;
 }
+/* md-sidenav, 
+md-sidenav.md-locked-open, 
+md-sidenav.md-closed.md-locked-open-add-active {
+    min-width: 200px !important;
+    width: 85vw !important;
+    max-width: 400px !important;
+}  */

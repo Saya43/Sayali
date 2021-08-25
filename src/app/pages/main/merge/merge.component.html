@@ -1,22 +1,25 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<app-header></app-header>
 <div class="align">
+<div class="container">
 <h1>Merge PDF Files</h1>
 <form>
     <input type="checkbox" id="check">
         <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
     <input type="file" id="fileUpload" role="button" multiple class="form align btn btn-default"  (change)="onFileChange($event)" >
 </form>
+</div>
 <h1 >{{files}}</h1>
-    <div *ngIf="isShown" class="row container-fluid file1" id="divshow" >
-        <div class="icon1">
-            <span>
-                    <i class="fas fa-sort-alpha-down background"  role="button"></i>
-                    <button type="button" class="btn btn-dark buybtn">Merge</button>
-            </span>
+    <div *ngIf="isShown" class="d-flex flex-column container-fluid file1" id="divshow" >
+        <div class="w-100 d-flex justify-content-end">
+            <div class="icon1">
+                <span>
+                        <i class="fas fa-sort-alpha-down background"  role="button"></i>
+                        <button type="button" class="btn btn-dark buybtn">Merge</button>
+                </span>
+            </div>
         </div>
-                <!-- <div class="icon"><i class="fas fa-file-alt"></i></div> -->
-                <!-- <div  class="demo">{{file}}</div> -->
-            
-            <table class="table">
+            <!-- <table class="table">
                     <thead>
                     <tr>
                         <th>SR NO</th>
@@ -26,18 +29,54 @@
                     </thead>
                     <tbody>
 
-                    <!-- <div *ngFor="let file of files" class="saya"> -->
+                    <div *ngFor="let file of files" class="saya"> 
                     <tr *ngFor="let file of files ; index as i ">
                         <td>{{i+1}}</td>
                         <td>{{file}}</td>
-                        <td><i class="far fa-times-circle"></i></td>
+                        <td>i class="far fa-times-circle"></i><</td>
                     </tr>
                 </tbody>
-                <!-- </div> -->
+            </table>  
+            -->
+            <ngx-datatable
+            class="bootstrap selection-cell"
+            [columnMode]="'force'"
+            [headerHeight]="30"
+            [footerHeight]="30"
+            [rowHeight]="'auto'"
+            [rows]="bestPracticesTemp"
+            [reorderable]="reorderable"
 
-            </table>
-                
-              
-        </div>
+        >
+            <ngx-datatable-column name="Sr No">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <div>
+                        <span>
+                            {{row.id}}
+                        </span>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <div>
+                        <span>
+                            {{row.name}}
+                        </span>
+                    </div>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="View">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <div class="pl-md-3 pl-2">
+                        <i class="far fa-times-circle" aria-hidden="true" role="button" ></i>   
+                                             
+                    </div>
+                    
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
     </div>
-<app-footer></app-footer>
+</div>
+
+<app-footer ></app-footer>

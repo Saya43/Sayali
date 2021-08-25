@@ -1,0 +1,61 @@
+[
+    {
+      "id": 1,
+      "name": "AOT vs JIT",
+      "category": "Performance"
+    },
+    {
+      "id": 2,
+      "name": "Lazy loading - Routing",
+      "category": "Performance"
+    },
+    {
+      "id": 3,
+      "name": "Track By",
+      "category": "Performance"
+    },
+    {
+      "id": 4,
+      "name": "Folder Structure",
+      "category": "Angular Standards"
+    },
+    {
+      "id": 5,
+      "name": "Angular coding styles",
+      "link": "/angularCodingStyles",
+      "category": "Angular Standards"
+    },
+    {
+      "id": 6,
+      "name": "Use index.ts",
+      "link": "/useIndexTsFile",
+      "category": "Angular Standards"
+    },
+    {
+      "id": 7,
+      "name": "Avoid logic in templates",
+      "category": "Coding Standards"
+    },
+    {
+      "id": 8,
+      "name": "Avoid any; type everything;",
+      "category": "Coding Standards"
+    },
+    {
+      "id": 9,
+      "name": "Add caching mechanism",
+      "category": "Performance"
+    },
+    {
+      "id": 10,
+      "name": "Make use of lint rules",
+      "category": "Angular Standards"
+    },
+    {
+      "id": 11,
+      "name": "Use environment variables",
+      "category": "Angular Standards"
+    }
+   
+]
+  

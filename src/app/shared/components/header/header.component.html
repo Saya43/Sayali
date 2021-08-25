@@ -1,6 +1,14 @@
+<!-- <div class="menu-breadcrumb" >
+    <div (click)="gotoHome()" style="cursor: pointer">Home ></div>
+    <div class="breadcrumb-item">{{ breadcrum }}</div>
+</div> -->
+
+ <div class="menu-breadcrumb" *ngIf="!isShown">
+    <div (click)="gotoHome()" role="button">Home ></div>
+    <div class="breadcrumb-item">{{ breadcrumbItem }}</div>
+</div>
 <nav>
-    <div class=logo >
+    <div class=logo *ngIf="isShown">
         <img src="../../../../assets/Images/Godrej Logo-04.svg"  class="small-logo col-xl-2 col-lg-3 col-md-4 col-sm-5 col-8 px-0" />
-        
     </div>
 </nav>

@@ -29,9 +29,9 @@ export class SidebarComponent implements OnInit {
   currentUrlName: any;
 
   public pages: Page[] = [
-    {id:1, name: 'Dashboard', link:'/main/merge', icon: 'assets/Images/menu-icon/merge.png'},
-    {id:2, name: 'Login Checklist', link:'/main/split', icon: 'assets/Images/menu-icon/login-checklist.svg'},
-    {id:3, name: 'Product Features', link:'/main/compress', icon: 'assets/Images/menu-icon/product-features.svg'},
+    {id:1, name: 'Merge', link:'/main/merge', icon: 'assets/Images/menu-icon/merge.png'},
+    {id:2, name: 'Split', link:'/main/split', icon: 'assets/Images/menu-icon/login-checklist.svg'},
+    {id:3, name: 'Compress', link:'/main/compress', icon: 'assets/Images/menu-icon/product-features.svg'},
     // {id:4, name: 'Projects', link:'/main-screen/projects', icon: 'assets/Images/menu-icon/poc.svg'},
     // {id:5, name: 'Calculators', link:'/main-screen/calculators', icon: 'assets/Images/menu-icon/emi-calculator.svg'},
     // {id:6, name: 'Lead Management', link:'/main-screen/lead-management', icon: 'assets/Images/menu-icon/lead-management.svg'},
@@ -59,7 +59,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     $('body').addClass('df');
     this.currentUrlName = window.location.pathname.split('/');
-    this.currentUrlName = '/' + this.currentUrlName[2] + '/' + this.currentUrlName[3];
+    this.currentUrlName = '/' + this.currentUrlName[1] + '/' + this.currentUrlName[2];
 
     // Menu item icon background color change code
     setTimeout(() => {

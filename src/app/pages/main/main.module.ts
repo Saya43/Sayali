@@ -7,7 +7,8 @@ import { MergeComponent } from '../main/merge/merge.component';
 import { MainRoutes} from './main.routing';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SidebarComponent } from 'src/app/shared';
+import { LoaderComponent, SidebarComponent } from 'src/app/shared';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,13 @@ import { SidebarComponent } from 'src/app/shared';
     SplitComponent,
     CompressComponent,   
      SidebarComponent,
+     LoaderComponent
     
   ],
   imports: [
     CommonModule,
     SharedModule,
+    NgxDatatableModule,
     RouterModule.forChild(MainRoutes),
 
   ]
