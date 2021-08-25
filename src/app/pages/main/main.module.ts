@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LoaderComponent, SidebarComponent } from 'src/app/shared';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     CommonModule,
     SharedModule,
     NgxDatatableModule,
+    DragDropModule,
     RouterModule.forChild(MainRoutes),
 
   ]

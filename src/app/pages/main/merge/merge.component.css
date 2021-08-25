@@ -189,7 +189,7 @@ width: 100%;
   justify-content: flex-end;
   align-items: center;
 }
- @media only screen and (max-width: 600px) {
+ @media only screen and (max-width: 600px) { 
   .index{
       margin: 10% 5%;
   }
@@ -200,5 +200,73 @@ width: 100%;
       margin: 3%;
       width: 100%;
   }
-} 
+}  
+
+
+/* @media only screen and (max-width: 600px) {
+  html{
+      width: auto;
+  }
+  .ngx-datatable{
+      height: auto !important;
+  }
+  .ngx-datatable .datatable-body{
+      height: 28rem !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+  }
+  .module-title{
+      font-size: 1.0rem;
+      display: flex;
+      align-items: center;
+  }
+  .head-part{
+      margin: 4% 3%;
+  }
+  .content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  .description{
+      width: auto;
+      height: 25rem;
+      margin: 2% 4%;
+      padding: 1% 1% 0 0;    
+  }
+  .description-full-window{
+      height: 25rem;
+      margin: 2% 4%;
+      padding: 1% 1% 0 0;
+  }
+  .code-snippet{
+      width: auto;
+      height: 12rem;
+      margin: 2% 4%;
+      padding: 3%; 
+  }
+  datatable-header-cell{
+      width: 17rem;
+  }
+  datatable-body-cell{
+      background-color: white !important;
+      width: 17rem;
+  }
+  datatable-body-row{
+      width: 100% !important;
+  }
+  datatable-scroller{
+      width: 100% !important;
+  }
+  .datatable-header-inner {
+      width: 100% !important;
+  }
+  .datatable-row-center{
+      width: 100% !important;
+  }
+  .datatable-body-cell-label{
+      background-color: white !important;    
+  }
+} */
+
 

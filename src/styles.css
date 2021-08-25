@@ -91,17 +91,26 @@ input:focus, button:focus{
 .ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell{
         padding: 0.25rem 0.55rem !important;
 }
+
 .ngx-datatable.bootstrap .datatable-header .datatable-header-cell .datatable-header-cell-label{
             font-weight: bold;
+            
 }
 .ngx-datatable.bootstrap .datatable-footer .page-count{
     padding: 0 0.6rem !important;
 }
+.ngx-datatable.bootstrap .datatable-footer  .datatable-footer-inner{
+    background: #424242;
+    color: #ededed;
+    margin-top: -1px;
+    height:30px;
+}
+
 input:focus{
     box-shadow: none !important;
     }
 .ngx-datatable{
-        height: 69vh !important;
+        height: 39vh !important;
         border: 1px solid black;
     margin: 2% 3%;
     
@@ -109,7 +118,7 @@ input:focus{
         }
 
 .ngx-datatable .datatable-body{
-    height: 60vh !important;
+    height: 26vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     }
