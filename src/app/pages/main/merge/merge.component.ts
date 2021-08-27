@@ -100,16 +100,23 @@ this.bestPracticesTemp=this.bestPractices;
 
 
   // }
-deleteRow(id:any){
-    console.log("datasource ",this.dataSource)
-    for(let i = 0; i < this.dataSource.length; ++i){
-        if (this.dataSource[i].srNo ==id) {
-          this.dataSource.splice(i,1);
-            console.log("delete data ",this.dataSource)
+// deleteRow(id:any){
+//     console.log("datasource ",ELEMENT_DATA)
+//     for(let i = 0; i < ELEMENT_DATA.length; ++i){
+//         if (ELEMENT_DATA[i].srNo ==id) {
+//           ELEMENT_DATA.splice(i,1);
+//           this.dataSource=ELEMENT_DATA
+//             console.log("delete data ",this.dataSource)
 
-         }
-        // console.log("data sourse ",this.dataSource[i].srNo)
-    }
+//          }
+//         // console.log("data sourse ",this.dataSource[i].srNo)
+//     }
+// }
+
+deleteRow(id:any){
+  this.dataSource = this.dataSource.filter((item: any) => item.srNo !== id)
+  this.dataSource = [...this.dataSource];
+  console.log(this.dataSource);
 }
 
   ngOnInit(): void {
