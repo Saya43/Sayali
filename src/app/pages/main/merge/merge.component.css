@@ -8,8 +8,6 @@
 box-shadow: none;
 position: relative;
 bottom: 20px;
-
-/* margin-top: 0px; */
 }
 
 .container{
@@ -17,7 +15,9 @@ bottom: 20px;
   flex-direction: column;
   align-items: center;
 }
-
+.demo{
+  margin-left: 7rem;
+}
 .file1{
   width: 62.5rem;
   height:25rem ;
@@ -28,7 +28,7 @@ bottom: 20px;
   display: flex;
   flex-direction: row;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   border-style: ridge;
   /* flex-wrap: wrap; */
 }
@@ -57,114 +57,47 @@ input[type=file]::file-selector-button {
   font-weight: 600;
 
 }
+input[type='file'] {
+  color: transparent;
+}
 .example-button-row button,
 .example-button-row a {
 margin-right: 8px;
 }
 
-/* th {
-border: 0px solid black;
-border-collapse: collapse;
-word-break: break-all;
-}
-td {
-  border: 0px solid black;
-  border-collapse: collapse;
-  word-break: break-all;
-  font-family: 'WorkSans-Regular';
-  }
 
-tbody {
-display:block;
-height:50px;
-overflow-y: auto!important;
-}
-
-tbody::-webkit-scrollbar {
+.example-container::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
-tbody::-webkit-scrollbar-track {
+.example-container::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 
-tbody::-webkit-scrollbar-thumb {
+.example-container::-webkit-scrollbar-thumb {
   background: #c9e296;
   border-radius: 10px;
 }
 
-tbody::-webkit-scrollbar-thumb:hover {
+.example-container::-webkit-scrollbar-thumb:hover {
   background: #9FC356;
 }
-thead {
-display:table;
-width:100%;
-width: calc( 100% - 1.25em )/* scrollbar is average 1em/16px width, remove it from thead width */
- 
-/* table-layout:fixed;even columns width , fix width of table too */
-
- 
-mat-table{
-border: 1px solid black;
-border-collapse: collapse;
-width:100%;
-margin-top:20px;
-height:19rem;
-overflow: auto;
-} 
-/* .table{
-  border: 1px solid black;
-  border-collapse: collapse;
-  width:100%;
-  margin-top:20px;
-}
-
-*/
 .example-container {
-  height:280px;
+  height:274px;
   max-width: 100%;
   overflow: auto;
   margin-top:25px;
   border:1px solid black;
+  font-family: 'WorkSans-Regular';
+
 } 
 
 table {
   width: 100%;
 
 }
-/* .example-container {
-  width: 100%;
-  height: calc(100vh - 32px);
-  overflow: auto;
-} */
-
-
-/* th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
-
-  /* padding-left: 14rem;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-} */
-/* th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
-  padding-right: 135px;
-} */
-
-/* tr{
-  padding-top: 10px;
-} */
-/*
-.pos{
-  overflow: auto;
-} */
-/* .saya{
-  width: 150px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 35px;
-} */
 
 
 .buybtn{
@@ -193,109 +126,23 @@ justify-content: center;
 font-size: 28px;
 }  
 
+@media screen and (min-width: 1024px){
+  .media{
+    font-size:40px !important;
+  }
+}
 
+@media screen and (min-width: 240px){
+  .media{
+    font-size:35px !important
+  }
+}
 
-/* .index{
-  border: 1px solid black;
-  margin: 2% 3%;
-}
-.content-list{
-  height: 100%;
-}
-.search-filter{
-  border-radius: 22px;
-  border: 1px solid #cccccc;
-  margin-bottom: 0;
-  width: 35%;
-  display: flex;
-  align-items: center;
-}
-.search-input-field:focus{
-  outline: none;
-}
-.dataTables_filter{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
- @media only screen and (max-width: 600px) { 
-  .index{
-      margin: 10% 5%;
+@media screen and (min-width: 640px){
+  .media{
+    font-size:40px !important
   }
-  .dataTables_filter{
-      justify-content: flex-start;
-  }
-  .search-filter{
-      margin: 3%;
-      width: 100%;
-  }
-}   */
 
-
-/* @media only screen and (max-width: 600px) {
-  html{
-      width: auto;
-  }
-  .ngx-datatable{
-      height: auto !important;
-  }
-  .ngx-datatable .datatable-body{
-      height: 28rem !important;
-      overflow-y: auto !important;
-      overflow-x: hidden !important;
-  }
-  .module-title{
-      font-size: 1.0rem;
-      display: flex;
-      align-items: center;
-  }
-  .head-part{
-      margin: 4% 3%;
-  }
-  .content{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-  }
-  .description{
-      width: auto;
-      height: 25rem;
-      margin: 2% 4%;
-      padding: 1% 1% 0 0;    
-  }
-  .description-full-window{
-      height: 25rem;
-      margin: 2% 4%;
-      padding: 1% 1% 0 0;
-  }
-  .code-snippet{
-      width: auto;
-      height: 12rem;
-      margin: 2% 4%;
-      padding: 3%; 
-  }
-  datatable-header-cell{
-      width: 17rem;
-  }
-  datatable-body-cell{
-      background-color: white !important;
-      width: 17rem;
-  }
-  datatable-body-row{
-      width: 100% !important;
-  }
-  datatable-scroller{
-      width: 100% !important;
-  }
-  .datatable-header-inner {
-      width: 100% !important;
-  }
-  .datatable-row-center{
-      width: 100% !important;
-  }
-  .datatable-body-cell-label{
-      background-color: white !important;    
-  }
-} */
+}
 
 

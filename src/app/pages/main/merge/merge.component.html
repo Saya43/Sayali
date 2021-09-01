@@ -1,16 +1,16 @@
 <app-loader *ngIf="isLoading"></app-loader>
 <app-header></app-header>
 <div class="align">
-<div class="container">
-<h1>Merge PDF Files</h1>
-<form>
+<div class="container col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 ">
+<h1 class="media">Merge PDF Files</h1>
+<form class=demo>
     <input type="checkbox" id="check">
         <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
-    <input type="file" id="fileUpload" role="button" multiple class="form align btn btn-default"  (change)="onFileChange($event)" >
+    <input type="file"   id="fileUpload" role="button" multiple class="form align btn btn-default" accept=".pdf,.doc" (change)="onFileChange($event)" >
 </form>
 </div>
 <h1 >{{files}}</h1>
-    <div *ngIf="isShown" class="d-flex flex-column container-fluid file1" id="divshow" >
+    <div *ngIf="isShown" class="d-flex flex-column container-fluid file1  col-sm-40 col-100 " id="divshow" >
         <div class="w-100 d-flex justify-content-end">
             <div class="icon1">
                 <span>
@@ -19,70 +19,7 @@
                 </span>
             </div>
         </div>
-            <!-- <table class="table">
-                    <thead>
-                    <tr>
-                        <th>SR NO</th>
-                        <th>Files</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <div *ngFor="let file of files" class="saya"> 
-                    <tr *ngFor="let file of files ; index as i ">
-                        <td>{{i+1}}</td>
-                        <td>{{file}}</td>
-                        <td>i class="far fa-times-circle"></i><</td>
-                    </tr>
-                </tbody>
-            </table>  
-            -->
-            <!-- <ngx-datatable
-            class="bootstrap selection-cell"
-            [columnMode]="'force'"
-            [headerHeight]="40"
-            [footerHeight]="30"
-            [rowHeight]="'auto'"
-            [rows]="bestPracticesTemp"
-
-        >
-        <ngx-datatable-column name="Sr No">
-            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                <div>
-                    <span>
-                        {{row.id}}
-                    </span>
-                </div>
-            </ng-template>
-        </ngx-datatable-column>
-            <ngx-datatable-column name="Name">
-                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                    
-                    <div>
-                        <span>
-                            {{row.name}}
-                        </span>
-                    </div> -->
-                    <!-- <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-                        <div class="example-box"  cdkDrag>
-                          <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-                          {{row.name}}
-                        </div>
-                      </div>
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="View">
-                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
-                    <div class="pl-md-3 pl-2">
-                        <i class="far fa-times-circle" aria-hidden="true" role="button" ></i>   
-                                             
-                    </div>
-                    
-                </ng-template>
-            </ngx-datatable-column>
-        </ngx-datatable> -->
-<div class="mat-elevation-z8 example-container">
+  <div class="mat-elevation-z8 example-container">
         <table mat-table #table [dataSource]="dataSource"  cdkDropList
   [cdkDropListData]="dataSource"
   (cdkDropListDropped)="dropTable($event)">

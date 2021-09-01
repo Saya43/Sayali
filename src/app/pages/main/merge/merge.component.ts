@@ -83,7 +83,11 @@ this.bestPracticesTemp=this.bestPractices;
   dropTable(event: CdkDragDrop<Merge[]>) {
     const prevIndex = this.dataSource.findIndex((d) => d === event.item.data);
     moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
+    for(var i=0; i<this.dataSource.length;i++){
+      this.dataSource[i].srNo=i+1
+  }
     this.table.renderRows();
+   
   }
 
   submitForm(){
@@ -116,6 +120,9 @@ this.bestPracticesTemp=this.bestPractices;
 deleteRow(id:any){
   this.dataSource = this.dataSource.filter((item: any) => item.srNo !== id)
   this.dataSource = [...this.dataSource];
+  for(var i=0; i<this.dataSource.length;i++){
+    this.dataSource[i].srNo=i+1
+}
   console.log(this.dataSource);
 }
 
