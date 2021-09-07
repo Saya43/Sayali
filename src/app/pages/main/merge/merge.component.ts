@@ -3,6 +3,11 @@ import  {  HttpClient  }  from  '@angular/common/http';
 import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragHandle} from '@angular/cdk/drag-drop';
 import {MatTable} from '@angular/material/table';
 import  {  FormGroup,  FormControl,  Validators}  from  '@angular/forms';
+import { FileUploadService } from '../../../services/upload-file.service';
+import { Observable } from 'rxjs';
+import { HttpEventType, HttpResponse } from '@angular/common/http';
+
+
 
 interface Merge{
   lastModified: any,
@@ -27,6 +32,8 @@ export class MergeComponent implements OnInit {
   
   displayedColumns: string[] = ['sr.no','name','actions'];
   dataSource = ELEMENT_DATA;
+  shortLink: string = "";
+  loading: boolean = false; 
   files:string  []  =  [];
   myFiles: any;
   isLoading=false;
@@ -39,7 +46,7 @@ bestPracticesTemp: any = [];
      file:  new  FormControl('',  [Validators.required])
   });
  
-  constructor(private http: HttpClient)  {  }
+  constructor(private http: HttpClient,private uploadService: FileUploadService)  {  }
  /**
    * Show loader screen
    */
@@ -73,7 +80,7 @@ this.bestPracticesTemp=this.bestPractices;
       //               'Size: ' + Math.round(size / 1024) + " KB");  
       event.target.files[i].srNo=i+1
       console.log(event.target.files[i])
-      this.files.push(event.target.files[i].name);
+      this.files.push(event.target.files[i]);
       ELEMENT_DATA.push(event.target.files[i]);
 
     }
@@ -96,6 +103,22 @@ this.bestPracticesTemp=this.bestPractices;
       formData.append("file[]",  this.myFiles[i]);
     } 
   }
+//   onUpload() {
+//     this.loading = !this.loading;
+//      console.log("onupload ",this.files);
+//     this.uploadService.upload(this.files).subscribe(
+//         (event: any) => {
+//             if (typeof (event) === 'object') {
+
+//                 // Short link via api response
+//                 this.shortLink = event.link;
+//                 console.log("inside event trigger")
+
+//                 this.loading = false; // Flag variable 
+//             }
+//         }
+//     );
+// }
   // deleteRow(i:any){
   //   this.dataSource= this.dataSource.splice(i,1);
 

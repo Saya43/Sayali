@@ -16,7 +16,10 @@ bottom: 20px;
   align-items: center;
 }
 .demo{
-  margin-left: 7rem;
+  margin-left: 9rem;
+  display: flex;
+  align-items: center;
+justify-content: center;
 }
 .file1{
   width: 62.5rem;

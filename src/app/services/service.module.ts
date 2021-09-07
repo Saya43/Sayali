@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidenavService } from './sidenav/sidenav.service';
+import { FileUploadService } from './upload-file.service';
 
 
 
@@ -9,6 +10,6 @@ import { SidenavService } from './sidenav/sidenav.service';
   imports: [
     CommonModule
   ],
-  providers:[SidenavService]
+  providers:[SidenavService,FileUploadService]
 })
 export class ServicesModule { }

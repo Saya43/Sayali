@@ -6,7 +6,22 @@
 <form class=demo>
     <input type="checkbox" id="check">
         <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
-    <input type="file"   id="fileUpload" role="button" multiple class="form align btn btn-default" accept=".pdf,.doc" (change)="onFileChange($event)" >
+    <input type="file"   id="fileUpload" role="button" multiple class="form align btn btn-default" accept=".pdf" (change)="onFileChange($event)" >
+    
+    <!-- <button (click)="onUpload()" 
+        class="btn btn-success">
+        Upload
+    </button>
+    <div class="container text-center jumbotron"
+    *ngIf="shortLink">
+    <h2> Visit Here</h2>
+    <a href="{{shortLink}}">{{shortLink}}</a>
+</div> -->
+  
+<!--Flag variable is used here-->
+<div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+</div>
 </form>
 </div>
 <h1 >{{files}}</h1>
@@ -58,9 +73,6 @@
 </table>
 </div>
 
-<!-- Copyright 2018 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
     
     </div>
 </div>

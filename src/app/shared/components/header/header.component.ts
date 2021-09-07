@@ -33,12 +33,6 @@ export class HeaderComponent implements OnInit {
     });
     this.breadcrumbItem =  localStorage.getItem("breadcrumb")
 
-    // if(this.breadcrumbItem==='' ){
-    //   this.breadcrumbItem=window.location.pathname.split('2')[0].split('/')[2]
-    //   // console.log(this.breadcrumbItem);
-
-    // }
-
 
        // On click of sidebar menu items, breadcrumb flag value
        this._sidenavService.selectedMenuItemFlag$.subscribe(

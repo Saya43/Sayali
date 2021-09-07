@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   constructor() { }
+  isShown: boolean = false ; // hidden by default
 
   ngOnInit(): void {
+    if(window.location.pathname.split('2')[0].split('/')[1]=='home'){
+      this.isShown=true;
+    }
   }
 
 }
