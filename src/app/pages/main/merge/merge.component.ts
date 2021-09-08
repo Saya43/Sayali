@@ -62,22 +62,33 @@ bestPracticesTemp: any = [];
    get f(){
       return  this.uploadForm.controls;
    }
-  
+
+toFindDuplicates() {
+  let resultToReturn = false;
+  const arry=ELEMENT_DATA.map(obj => obj.name);
+  resultToReturn = arry.some((element, index) => {
+    return arry.indexOf(element) !== index
+});
+if (resultToReturn) {
+    console.log('Duplicate elements exist');
+    return resultToReturn
+    }
+    else {
+        console.log('Duplicates dont exist ');
+        }
+    }
 
   onFileChange(event:any)  {
+    const duplicate= this.toFindDuplicates()
+console.log("duplicate val",duplicate)
 console.log(event.target.files)
-// this.dataSource=event.target.files;
 this.bestPractices=event.target.files;
 this.bestPracticesTemp=this.bestPractices;
     for  (var i =  0; i <  event.target.files.length; i++)  {  
       var name = event.target.files[i].name;
       var type = event.target.files[i].type;
       var size = event.target.files[i].size;
-      var modifiedDate = event.target.files[i].lastModifiedDate;
-      // console.log ('Name: ' + name + "\n" + 
-      //               'Type: ' + type + "\n" +
-      //               'Last-Modified-Date: ' + modifiedDate + "\n" +
-      //               'Size: ' + Math.round(size / 1024) + " KB");  
+      var modifiedDate = event.target.files[i].lastModifiedDate; 
       event.target.files[i].srNo=i+1
       console.log(event.target.files[i])
       this.files.push(event.target.files[i]);
@@ -85,8 +96,42 @@ this.bestPracticesTemp=this.bestPractices;
 
     }
     console.log(ELEMENT_DATA)
-    this.isShown = ! this.isShown;
+    console.log("before ",this.isShown)
+    if(this.isShown===true){
+      this.isShown=true
+    }
+    else{
+      this.isShown= !this.isShown
+    }
+  
+    console.log("after",this.isShown)
+    this.dataSource = [...ELEMENT_DATA];
+    console.log("element_data",ELEMENT_DATA)
+
+
+        
+  
+
+    // let resultToReturn = false;
+    // // call some function with callback function as argument
+    // resultToReturn = ELEMENT_DATA.some((element, index) => {
+    //     return ELEMENT_DATA.indexOf(element) !== index
+    // });
+    // if (resultToReturn) {
+    //     console.log('Duplicate elements exist')
+            
+    //     }
+    //     else {
+    //         console.log('Duplicates dont exist')
+    //         }
+
+          
+ for(var i=0; i<this.dataSource.length;i++){
+  this.dataSource[i].srNo=i+1
+}
+  // this.dataSource.find()
   }
+
   dropTable(event: CdkDragDrop<Merge[]>) {
     const prevIndex = this.dataSource.findIndex((d) => d === event.item.data);
     moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
@@ -119,26 +164,9 @@ this.bestPracticesTemp=this.bestPractices;
 //         }
 //     );
 // }
-  // deleteRow(i:any){
-  //   this.dataSource= this.dataSource.splice(i,1);
+ 
 
-  //   console.log(this.dataSource)
-  //   console.log(i)
-
-
-  // }
-// deleteRow(id:any){
-//     console.log("datasource ",ELEMENT_DATA)
-//     for(let i = 0; i < ELEMENT_DATA.length; ++i){
-//         if (ELEMENT_DATA[i].srNo ==id) {
-//           ELEMENT_DATA.splice(i,1);
-//           this.dataSource=ELEMENT_DATA
-//             console.log("delete data ",this.dataSource)
-
-//          }
-//         // console.log("data sourse ",this.dataSource[i].srNo)
-//     }
-// }
+  
 
 deleteRow(id:any){
   this.dataSource = this.dataSource.filter((item: any) => item.srNo !== id)

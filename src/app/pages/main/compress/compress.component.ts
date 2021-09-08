@@ -12,11 +12,50 @@ export  class  CompressComponent {
      file:  new  FormControl('',  [Validators.required])
    });
   myFiles: any;
+  clicked = false;
+  dropDownFlag = false;
+  dropdownDefaultValue = 'Select';
+ 
+  websiteList: any = ['Normal Quality', 'High Quality', 'Best Quality']
+   
+  form = new FormGroup({
+    website: new FormControl('', Validators.required)
+  });
+   
+  get f(){
+    return this.form.controls;
+  }
+   
+  submit(){
+    console.log(this.form.value);
+  }
  
   constructor(private httpClient:  HttpClient)  {  }
-  get f(){
-      return  this.uploadForm.controls;
-   }
+  /**
+   * Show/Hide constitution dropdown
+   */
+   showConstitutionDropdown(): void{
+    if(this.dropDownFlag === true){
+      this.clicked = this.dropDownFlag = false;
+    }
+    else{
+      this.clicked = this.dropDownFlag = true;
+    }
+  }
+  
+  /**
+   * Set constitution formcontrol value
+   */
+   setConstitution(constitution: string): void{
+    // this.signUpDetails.controls['constitution'].setValue(constitution);
+    this.dropdownDefaultValue = constitution;
+    this.clicked = this.dropDownFlag = false;
+  }
+
+
+  // get f(){
+  //     return  this.uploadForm.controls;
+  //  }
    isShown: boolean = false ; // hidden by default
 
   onFileChange(event:any){

@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="align">
-<h1>Merge PDF Files</h1>
+<h1>Compress Image</h1>
 <form>
     <input type="checkbox" id="check">
         <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
@@ -10,14 +10,54 @@
     <div *ngIf="isShown" class="row container-fluid file1" id="divshow" >
         <div class="icon1">
             <span>
-                    <i class="fas fa-sort-alpha-down background"  role="button"></i>
-                    <button type="button" class="btn btn-dark buybtn">Merge</button>
+                    <!-- <i class="fas fa-sort-alpha-down background"  role="button"></i> -->
+                    <button type="button" class="btn btn-dark buybtn">Compress</button>
             </span>
         </div>
-            <div *ngFor="let file of files" class="saya">
+            <!-- <div *ngFor="let file of files" class="saya">
                 <div class="icon"><i class="fas fa-file-alt"></i></div>
                 <div  class="demo">{{file}}</div>
+            </div> -->
+            <div class=drop>
+<!--             
+            <form>
+                <label for="quality">Image Quality&nbsp;: &nbsp;</label>
+            <select name="quality" id="quality" style="height: 36px;
+            width: 14.6rem;">
+              <option value="volvo">normal Quality</option>
+              <option value="saab">High Quality</option>
+              <option value="mercedes">Best Quality</option>
+            </select><br>
+            <label for="fheight">Max Height &nbsp; &nbsp; : &nbsp;</label>
+  <input type="text" id="fheight" name="fheight" value="145"><br>
+  <label for="width">Max width &nbsp; &nbsp; &nbsp; : &nbsp;</label>
+  <input type="text" id="width" name="width" value="120">
+</form> -->
+<div class="container input-field">
+         
+    <form [formGroup]="form" (ngSubmit)="submit()">
+            
+        <div >
+            <span class="sayali">
+            <label for="website" class="padding">Quality:</label>
+            <select formControlName="website" class="form-control">
+                <!-- <option disabled>Select Quality</option> -->
+                <option>Choose Quality</option>
+                <option *ngFor="let web of websiteList" >{{web}}</option>
+            </select>
+            </span>
+            <!-- <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
+                <div *ngIf="f.website.errors.required">Name is required.</div>
+            </div> --> 
+        </div>
+        <label style="padding-right: 2px;">Max Height : </label>
+  <input type="text" id="height" name="height" style="width:15rem" ><br>
+  <label style="padding-right: 10px;">Max width  : </label>
+  <input type="text" id="width" name="width" style="width:15rem">
+    </form>
+</div>
             </div>
+            
         </div>
     </div>
 <app-footer></app-footer>

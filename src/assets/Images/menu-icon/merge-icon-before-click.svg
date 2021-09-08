@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1435" data-name="Rectangle 1435" width="40" height="40" transform="translate(28 131.742)" fill="#fff" opacity="0"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(-28 -131.742)" clip-path="url(#clip-path)">
+    <rect id="compress-2693150-2234833" width="40" height="40" rx="10" transform="translate(28 132)" fill="#9fc356" opacity="0.3"/>
+    <path id="Path_352" data-name="Path 352" d="M0,0,7.875,9.188h0" transform="matrix(0.996, -0.087, 0.087, 0.996, 33.439, 139.05)" fill="none" stroke="#9fc356" stroke-width="2"/>
+    <g id="Path_347" data-name="Path 347" transform="translate(49.333 147.86) rotate(137)" fill="#fff">
+      <path d="M 8.959127426147461 5.757521152496338 L 1.051668882369995 5.757521152496338 L 5.085410594940186 0.8017714619636536 L 8.959127426147461 5.757521152496338 Z" stroke="none"/>
+      <path d="M 5.07749080657959 1.6035475730896 L 2.10333251953125 5.257521152496338 L 7.93366003036499 5.257521152496338 L 5.07749080657959 1.6035475730896 M 5.093317031860352 1.430511474609375e-06 L 9.984577178955078 6.257521152496338 L -2.86102294921875e-06 6.257521152496338 L 5.093317031860352 1.430511474609375e-06 Z" stroke="none" fill="#fff"/>
+    </g>
+    <path id="Path_353" data-name="Path 353" d="M0,0,7.875,9.188h0" transform="translate(60.894 163.412) rotate(169)" fill="none" stroke="#9fc356" stroke-width="2"/>
+    <g id="Path_354" data-name="Path 354" transform="matrix(0.588, -0.809, 0.809, 0.588, 44.547, 157.054)" fill="#fff">
+      <path d="M 8.959127426147461 5.757521152496338 L 1.051668882369995 5.757521152496338 L 5.085410594940186 0.8017714619636536 L 8.959127426147461 5.757521152496338 Z" stroke="none"/>
+      <path d="M 5.07749080657959 1.6035475730896 L 2.10333251953125 5.257521152496338 L 7.93366003036499 5.257521152496338 L 5.07749080657959 1.6035475730896 M 5.093317031860352 1.430511474609375e-06 L 9.984577178955078 6.257521152496338 L -2.86102294921875e-06 6.257521152496338 L 5.093317031860352 1.430511474609375e-06 Z" stroke="none" fill="#fff"/>
+    </g>
+    <rect id="Rectangle_1434" data-name="Rectangle 1434" width="40" height="40" transform="translate(28 131.742)" fill="#fff" opacity="0.04"/>
+  </g>
+</svg>

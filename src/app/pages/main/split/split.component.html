@@ -1,4 +1,4 @@
-<app-loader *ngIf="isLoading"></app-loader>
+<!-- <app-loader *ngIf="isLoading"></app-loader>
 <app-header></app-header>
 <div class="align">
 <h1>Split PDF Files</h1>
@@ -12,14 +12,14 @@
         <div class="icon1">
             <span>
                     <!-- <i  class="fas fa-filter "  role="button"></i>  -->
-                    <button type="button" (click)="openFormModal1(modalForm1)"><i class="fa fa-filter icon2"></i> </button>
+                    <!-- <button type="button" (click)="openFormModal1(modalForm1)"><i class="fa fa-filter icon2"></i> </button> 
                     <button type="button" class="btn btn-dark buybtn">Split</button>
             </span>
         </div>
-            <div *ngFor="let file of files" class="saya">
+             <div *ngFor="let file of files" class="saya">
                 <div class="icon"><i class="fas fa-file-alt"></i></div>
                 <div  class="demo">{{file}}</div>
-            </div>
+            </div> 
         </div>
     </div>
 <ng-template #modalForm1>
@@ -46,4 +46,39 @@
     </div>
   </ng-template>
   
+    <app-footer></app-footer> -->
+    <app-header></app-header>
+    <div class="align">
+    <h1>Split PDF Files</h1>
+    <form>
+        <input type="checkbox" id="check">
+            <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+        <input type="file" id="fileUpload" role="button" multiple class="form align btn btn-default"  (change)="onFileChange($event)" >
+    </form>
+    <h1 >{{files}}</h1>
+        <div *ngIf="isShown" class="row container-fluid file1" id="divshow" >
+            <div class="icon1">
+                <span>
+                        <!-- <i class="fas fa-sort-alpha-down background"  role="button"></i> -->
+                        <button type="button" class="btn btn-dark buybtn">Split</button>
+                </span>
+            </div>
+                <!-- <div *ngFor="let file of files" class="saya">
+                    <div class="icon"><i class="fas fa-file-alt"></i></div>
+                    <div  class="demo">{{file}}</div>
+                </div> -->
+                <div class=drop>
+                
+                <!-- <form>
+                    <label >Selected Ranges :</label>
+      <input class="input-field"type="text" id="range" name="range" value=""><br>
+      
+    </form> -->
+    <label >Selected Ranges :</label>
+     <input class="input-field form-control form-control-sm" autocomplete="off" placeholder="Selected Range" type="text" />
+                </div>
+                
+            </div>
+        </div>
     <app-footer></app-footer>
+    

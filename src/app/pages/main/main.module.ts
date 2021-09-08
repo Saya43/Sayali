@@ -11,6 +11,12 @@ import { LoaderComponent, SidebarComponent } from 'src/app/shared';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +34,8 @@ import {MatTableModule} from '@angular/material/table';
     NgxDatatableModule,
     DragDropModule,
     MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(MainRoutes),
 
   ]

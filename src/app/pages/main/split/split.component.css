@@ -111,3 +111,14 @@ outline: none;
 border:none;
 }
 
+.drop{
+  font-size: 20px;
+  margin-top:15px;
+margin-left:28rem}
+/* .input-field{
+  height: 1.5rem; 
+  font-family: 'WorkSans-Regular';
+} */
+.input-field:focus{
+  border-color: #9FC356;
+}
