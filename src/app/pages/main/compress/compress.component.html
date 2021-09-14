@@ -1,63 +1,105 @@
-<app-header></app-header>
-<div class="align">
-<h1>Compress Image</h1>
-<form>
-    <input type="checkbox" id="check">
-        <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
-    <input type="file" id="fileUpload" role="button" multiple class="form align btn btn-default"  (change)="onFileChange($event)" >
-</form>
-<h1 >{{files}}</h1>
-    <div *ngIf="isShown" class="row container-fluid file1" id="divshow" >
-        <div class="icon1">
-            <span>
-                    <!-- <i class="fas fa-sort-alpha-down background"  role="button"></i> -->
-                    <button type="button" class="btn btn-dark buybtn">Compress</button>
-            </span>
-        </div>
-            <!-- <div *ngFor="let file of files" class="saya">
-                <div class="icon"><i class="fas fa-file-alt"></i></div>
-                <div  class="demo">{{file}}</div>
-            </div> -->
-            <div class=drop>
-<!--             
-            <form>
-                <label for="quality">Image Quality&nbsp;: &nbsp;</label>
-            <select name="quality" id="quality" style="height: 36px;
-            width: 14.6rem;">
-              <option value="volvo">normal Quality</option>
-              <option value="saab">High Quality</option>
-              <option value="mercedes">Best Quality</option>
-            </select><br>
-            <label for="fheight">Max Height &nbsp; &nbsp; : &nbsp;</label>
-  <input type="text" id="fheight" name="fheight" value="145"><br>
-  <label for="width">Max width &nbsp; &nbsp; &nbsp; : &nbsp;</label>
-  <input type="text" id="width" name="width" value="120">
-</form> -->
-<div class="container input-field">
-         
-    <form [formGroup]="form" (ngSubmit)="submit()">
-            
-        <div >
-            <span class="sayali">
-            <label for="website" class="padding">Quality:</label>
-            <select formControlName="website" class="form-control">
-                <!-- <option disabled>Select Quality</option> -->
-                <option>Choose Quality</option>
-                <option *ngFor="let web of websiteList" >{{web}}</option>
-            </select>
-            </span>
-            <!-- <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
-                <div *ngIf="f.website.errors.required">Name is required.</div>
-            </div> --> 
-        </div>
-        <label style="padding-right: 2px;">Max Height : </label>
-  <input type="text" id="height" name="height" style="width:15rem" ><br>
-  <label style="padding-right: 10px;">Max width  : </label>
-  <input type="text" id="width" name="width" style="width:15rem">
+<app-loader *ngIf="isLoading"></app-loader>
+    <app-header></app-header>
+    <div class="align">
+        <div class="container col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 ">
+        <h1 class="media">Compress Image</h1>
+        <form class=demo>
+            <input type="checkbox" id="check">
+                <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+            <input type="file"   id="fileUpload" role="button" multiple class="form align btn btn-default" accept=".jpg" (change)="onFileChange($event)" >
     </form>
-</div>
-            </div>
-            
-        </div>
     </div>
-<app-footer></app-footer>
+    <h1 >{{files}}</h1>
+
+            <div *ngIf="isShown" class="d-flex flex-column container-fluid file1  col-sm-40 col-100 " id="divshow" >
+                <div class="w-100 d-flex justify-content-end">
+                    <div class="icon1">
+                        <span>
+                                <button type="button" class="btn btn-dark buybtn">Compress</button>
+        
+                        </span>
+                    </div>
+                </div>
+                <form [formGroup]="signUpDetails" class="margin">
+					<div class=" row">
+				
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="form-group dropdown-box">
+                                <div class="label mb-1 d-flex">
+        Quality
+        <div *ngIf="clicked === false" class="text-danger ml-1">*</div>
+                                        <!-- <mat-error *ngFor="let validation of signUpValidation.constitution">
+                                                <mat-error
+                                                        class="error-message ml-1"
+                                                        *ngIf="clicked === true && (this.signUpDetails.get('constitution')?.value === '')"
+                                                >
+                                                        {{validation.message}}
+                                                </mat-error>
+                                        </mat-error> -->
+                                </div>
+                                <div
+                                        id="select-dropdown-id"
+                                        class="dropdown-toggle select-dropdown d-flex"
+                                        (click)="showConstitutionDropdown()"
+                                        role="button"
+                                        [class.select-dropdown-click]="clicked === true"
+                                >
+                                        <div class="w-100 d-flex">
+                                                <div class="label">
+                                                        {{ dropdownDefaultValue }}
+                                                </div>
+                                                <i class="fa fa-angle-down d-flex align-items-center pr-1"  *ngIf="clicked === false" aria-hidden="true"></i>
+                                                <i class="fa fa-angle-up d-flex align-items-center pr-1" *ngIf="clicked === true" aria-hidden="true"></i>
+                                        </div>
+                                </div>
+                                <div class="dropdown-list d-flex flex-column" [class.drop-list-show]="clicked === true" *ngIf="dropDownFlag === true">
+                                        <div *ngFor="let constitution of constitutionList" class="py-1 px-2 dropdown-list-item" (click)="setConstitution(constitution.name)">
+                                                {{constitution.name}}
+                                        </div>
+                                </div>
+                        </div>
+                        </div>
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="form-group">
+									<div class="label d-flex mb-1">
+											Max Height <div class="text-danger ml-1">*</div>
+									</div>
+									<input class="input-field form-control form-control-sm" autocomplete="off" placeholder="Height" type="text" formControlName="firstName" />
+							</div>
+					</div>
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+							<div class="form-group">
+									<div class="label mb-1 d-flex">
+											Max Width <div class="text-danger ml-1">*</div>
+									</div>
+									<input class="input-field form-control form-control-sm" autocomplete="off" placeholder="Width" type="text" formControlName="Width" />
+							</div>
+					</div>
+                 </div>       
+                </form>
+                <!-- <form [formGroup]="form" (ngSubmit)="submit()">
+            
+                    <div >
+                        <span class="sayali">
+                        <label for="website" class="padding">Quality:</label>
+                        <select formControlName="website" class="form-control">
+                            <!-- <option disabled>Select Quality</option>
+                            <option>Choose Quality</option>
+                            <option *ngFor="let web of websiteList" >{{web}}</option>
+                        </select>
+                        </span>
+                        <label >Max height :</label>
+                        <input class="input-field form-control form-control-sm" autocomplete="off" placeholder="Height" type="text" />
+                        <label >Max width :</label>
+                        <input class="input-field form-control form-control-sm" autocomplete="off" placeholder="width" type="text" />
+                         <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
+                            <div *ngIf="f.website.errors.required">Name is required.</div>
+                        </div> 
+                    </div>
+                   
+                </form> -->
+                
+            </div>
+        </div>
+    <app-footer></app-footer>
+    

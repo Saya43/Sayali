@@ -1,17 +1,30 @@
+
 .align{
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'WorkSans-Bold';
   outline: none;
 box-shadow: none;
-
+position: relative;
+bottom: 20px;
 }
 
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.demo{
+  margin-left: 9rem;
+  display: flex;
+  align-items: center;
+justify-content: center;
+}
 .file1{
-  width: 1000px;
-  height: 300px;
+  width: 40rem;
+  height:20rem ;
   border: none;
   border-radius: 30px;
   border-color: rgb(247, 253, 251);
@@ -19,10 +32,15 @@ box-shadow: none;
   display: flex;
   flex-direction: row;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   border-style: ridge;
-  flex-wrap: wrap;
-  overflow: auto;
+  /* flex-wrap: wrap; */
+}
+.saya{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 35px;
 }
 
 .icon{
@@ -36,17 +54,11 @@ background-color: aliceblue;
   font-size: 50px;
   margin-top: 30px; 
 }
-
-.demo{
+.demo1{
   text-align: center;
   word-break: break-word;
   width: 90%;
   padding-top: 5%;
-}
-.demo2{
-  
-  border-radius: 2px;
-  background-image: linear-gradient(#b82f0d,#08320b);
 }
 
 input[type=file]::file-selector-button {
@@ -55,25 +67,51 @@ input[type=file]::file-selector-button {
   border-radius: 20px;
   font-size: 20px;
   background-color: transparent;
-  /* background-color: #00d3ee;
-  background-image: linear-gradient(to right #baf8f4); */
-  font-family: 'STIX Two Text', serif;
+  font-family: 'WorkSans-Bold';
   margin-right:10px;
-  /*color:white;*/
   font-weight: 600;
 
+}
+input[type='file'] {
+  color: transparent;
 }
 .example-button-row button,
 .example-button-row a {
 margin-right: 8px;
 }
 
-.saya{
-  width: 150px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 35px;
+
+.example-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.example-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.example-container::-webkit-scrollbar-thumb {
+  background: #c9e296;
+  border-radius: 10px;
+}
+
+.example-container::-webkit-scrollbar-thumb:hover {
+  background: #9FC356;
+}
+.example-container {
+  height:274px;
+  max-width: 100%;
+  overflow: auto;
+  margin-top:25px;
+  border:1px solid black;
+  font-family: 'WorkSans-Regular';
+
+} 
+
+table {
+  width: 100%;
+
 }
 
 
@@ -96,29 +134,50 @@ margin-left: 12px;
 
 .icon1 {
 
-margin-left :850px;
 margin-top: 10px;
-margin-bottom: 6px;
-position: fixed;
+margin-bottom: 0px;
+/* position: fixed; */
 justify-content: center;
 font-size: 28px;
-/* border:none;
-box-shadow: none; */
 }  
-
-.icon2{
-outline: none;
-border:none;
+.label{
+  padding-right: 10px;
 }
 
 .drop{
-  font-size: 20px;
-  margin-top:15px;
-margin-left:28rem}
-/* .input-field{
-  height: 1.5rem; 
+  font-size: 17px;
+   margin-top: -13.5rem; 
+    display: flex;
+}
+
+.input-field{
   font-family: 'WorkSans-Regular';
-} */
+  width: 35%;
+}
 .input-field:focus{
   border-color: #9FC356;
 }
+.form-group{
+  /* margin-top:-14rem; */
+  margin-bottom: 0.5rem !important;
+}
+@media screen and (min-width: 1024px){
+  .media{
+    font-size:40px !important;
+  }
+}
+
+@media screen and (min-width: 240px){
+  .media{
+    font-size:35px !important
+  }
+}
+
+@media screen and (min-width: 640px){
+  .media{
+    font-size:40px !important
+  }
+
+}
+
+

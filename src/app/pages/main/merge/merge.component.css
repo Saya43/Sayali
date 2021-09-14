@@ -128,7 +128,9 @@ margin-bottom: 0px;
 justify-content: center;
 font-size: 28px;
 }  
-
+.label{
+  padding-right: 10px;
+}
 @media screen and (min-width: 1024px){
   .media{
     font-size:40px !important;

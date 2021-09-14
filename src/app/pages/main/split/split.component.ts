@@ -13,6 +13,7 @@ export class SplitComponent implements OnInit {
   uploadForm =  new  FormGroup({
     file:  new  FormControl('',  [Validators.required])
   });
+  signUpDetails: any = FormGroup;
 
 myFiles: any;
 isLoading=false;
@@ -58,13 +59,13 @@ constructor(private httpClient:  HttpClient,private modalService:BsModalService)
      } 
     }
   
-    openFormModal1(modalForm1: TemplateRef<any>): void{
-      this.formModal1= this.modalService.show(modalForm1, {
-        // backdrop: 'static',
-      //   keyboard: false,
-      //   class: 'modal-dialog-centered',
-       });
-    }
+    // openFormModal1(modalForm1: TemplateRef<any>): void{
+    //   this.formModal1= this.modalService.show(modalForm1, {
+    //     // backdrop: 'static',
+    //   //   keyboard: false,
+    //   //   class: 'modal-dialog-centered',
+    //    });
+    // }
   ngOnInit(): void {
     this.start()
   }

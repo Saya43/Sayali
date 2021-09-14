@@ -219,5 +219,8 @@ th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:la
 th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
     padding-right: 135px;
 } */
+.dropdown-toggle::after {
+    display: none !important;
+}
 html, body { height: 100%; margin: 0; }
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

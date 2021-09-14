@@ -71,7 +71,6 @@ toFindDuplicates() {
 });
 if (resultToReturn) {
     console.log('Duplicate elements exist');
-    return resultToReturn
     }
     else {
         console.log('Duplicates dont exist ');
