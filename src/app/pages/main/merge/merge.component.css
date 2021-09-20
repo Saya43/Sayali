@@ -1,8 +1,7 @@
 .align{
-  display: flex;
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
-  margin: 20px;
+  flex-direction:column; */
   font-family: 'WorkSans-Bold';
   outline: none;
 box-shadow: none;
@@ -10,29 +9,37 @@ position: relative;
 bottom: 20px;
 }
 
-.container{
+input #fileUpload{
+  background: #9FC356;
+}
+
+/* .container{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} 
 .demo{
   margin-left: 9rem;
   display: flex;
   align-items: center;
 justify-content: center;
+}*/
+demo{
+  margin-top: 50px;
 }
 .file1{
-  width: 62.5rem;
-  height:25rem ;
+  width: 100%;
+  max-height: 30rem;
+  padding-bottom: 15px;
   border: none;
-  border-radius: 30px;
-  border-color: rgb(247, 253, 251);
-  border-width: 5px;
+  border-radius: 20px;
+  border-color: #9fc356;
+  border-width: 1px;
   display: flex;
   flex-direction: row;
   font-weight: 500;
   font-size: 13px;
-  border-style: ridge;
+  border-style: solid;
   /* flex-wrap: wrap; */
 }
 
@@ -88,7 +95,7 @@ margin-right: 8px;
   background: #9FC356;
 }
 .example-container {
-  height:274px;
+  max-height: 320px;
   max-width: 100%;
   overflow: auto;
   margin-top:25px;
@@ -96,15 +103,38 @@ margin-right: 8px;
   font-family: 'WorkSans-Regular';
 
 } 
+.not-allowed-cursor{
+  cursor: not-allowed;
+}
 
 table {
   width: 100%;
 
 }
+.button{
+  color:#9fc356;
 
+}
 
 .buybtn{
-margin-left: 12px;
+  margin-left: 13px;
+  color: white;
+  background-color: #9FC356;
+  font-size: 1rem !important;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-family: 'WorkSans-Regular';
+  border: 1px solid #9FC356;
+} 
+.buy{
+  margin-left: 13px;
+  color: white;
+  background-color: #9FC356;
+  font-size: 1rem !important;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-family: 'WorkSans-Regular';
+  border: 1px solid #9FC356;
 } 
 
 .checkbtn{
@@ -131,6 +161,14 @@ font-size: 28px;
 .label{
   padding-right: 10px;
 }
+
+.reorder-button{
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+    color: #9fc356;
+}
+
 @media screen and (min-width: 1024px){
   .media{
     font-size:40px !important;
@@ -149,5 +187,14 @@ font-size: 28px;
   }
 
 }
+@media (min-width: 1200px){
+.col-xl-2 {
+    -ms-flex: 0 0 18.666667%;
+    flex: 0 0 18.666667%;
+    max-width: 18.666667%;
+
+}
+}
+
 
 

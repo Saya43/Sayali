@@ -4,10 +4,6 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragHandle} from '@a
 import {MatTable} from '@angular/material/table';
 import  {  FormGroup,  FormControl,  Validators}  from  '@angular/forms';
 import { FileUploadService } from '../../../services/upload-file.service';
-import { Observable } from 'rxjs';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-
-
 
 interface Merge{
   lastModified: any,
@@ -17,6 +13,8 @@ size: any,
 type: any,
 srNo:any,
 webkitRelativePath: any
+isDuplicate:any
+isSelected:any
 }
 const ELEMENT_DATA: Merge[] = [
 ]
@@ -30,7 +28,7 @@ const ELEMENT_DATA: Merge[] = [
 export class MergeComponent implements OnInit {
   @ViewChild('table') table: MatTable<Merge>;
   
-  displayedColumns: string[] = ['sr.no','name','actions'];
+  displayedColumns: string[] = ['row','sr.no','name','actions'];
   dataSource = ELEMENT_DATA;
   shortLink: string = "";
   loading: boolean = false; 
@@ -41,6 +39,7 @@ export class MergeComponent implements OnInit {
 totalCount:number;
 bestPractices: any = [];
 bestPracticesTemp: any = [];
+selectedFile:any
 
   uploadForm =  new  FormGroup({
      file:  new  FormControl('',  [Validators.required])
@@ -66,21 +65,22 @@ bestPracticesTemp: any = [];
 toFindDuplicates() {
   let resultToReturn = false;
   const arry=ELEMENT_DATA.map(obj => obj.name);
-  resultToReturn = arry.some((element, index) => {
-    return arry.indexOf(element) !== index
-});
-if (resultToReturn) {
-    console.log('Duplicate elements exist');
+  arry.forEach((element,index)=>{
+    if(arry.indexOf(element)!=index){
+        ELEMENT_DATA[index].isDuplicate=true      
     }
-    else {
-        console.log('Duplicates dont exist ');
-        }
-    }
+  })
+  }
+  
+  // moveElement(initialIndex: number,finalIndex:number) {
+  //   const array=ELEMENT_DATA.map(obj => obj.name);
+  //   array.splice(finalIndex,0,array.splice(initialIndex,1)[0])
+  //   console.log("array index",array);
+  //   return array;
+  // }
+  
 
   onFileChange(event:any)  {
-    const duplicate= this.toFindDuplicates()
-console.log("duplicate val",duplicate)
-console.log(event.target.files)
 this.bestPractices=event.target.files;
 this.bestPracticesTemp=this.bestPractices;
     for  (var i =  0; i <  event.target.files.length; i++)  {  
@@ -89,54 +89,106 @@ this.bestPracticesTemp=this.bestPractices;
       var size = event.target.files[i].size;
       var modifiedDate = event.target.files[i].lastModifiedDate; 
       event.target.files[i].srNo=i+1
-      console.log(event.target.files[i])
+      event.target.files[i].isDuplicate=false
+      event.target.files[i].isSelected=false
       this.files.push(event.target.files[i]);
       ELEMENT_DATA.push(event.target.files[i]);
 
     }
-    console.log(ELEMENT_DATA)
-    console.log("before ",this.isShown)
+    // console.log(ELEMENT_DATA)
+    // console.log("before ",this.isShown)
     if(this.isShown===true){
       this.isShown=true
     }
     else{
       this.isShown= !this.isShown
     }
+   
   
-    console.log("after",this.isShown)
     this.dataSource = [...ELEMENT_DATA];
-    console.log("element_data",ELEMENT_DATA)
+    this.totalCount = this.dataSource.length;
+    // console.log("element_data",ELEMENT_DATA)
 
 
+        this.toFindDuplicates()
+        // this.moveElement(initialIndex,finalIndex)
         
-  
-
-    // let resultToReturn = false;
-    // // call some function with callback function as argument
-    // resultToReturn = ELEMENT_DATA.some((element, index) => {
-    //     return ELEMENT_DATA.indexOf(element) !== index
-    // });
-    // if (resultToReturn) {
-    //     console.log('Duplicate elements exist')
-            
-    //     }
-    //     else {
-    //         console.log('Duplicates dont exist')
-    //         }
 
           
- for(var i=0; i<this.dataSource.length;i++){
-  this.dataSource[i].srNo=i+1
-}
+          for(var i=0; i<this.dataSource.length;i++){
+            this.dataSource[i].srNo=i+1
+          }
   // this.dataSource.find()
+}
+moveRecordUpwords(){
+  if(this.selectedFile<=1){
+    return
+  }else{
+  const temp=ELEMENT_DATA[this.selectedFile-1]
+  ELEMENT_DATA[this.selectedFile-1]=ELEMENT_DATA[this.selectedFile-2]
+  ELEMENT_DATA[this.selectedFile-2]=temp
+    // ELEMENT_DATA[this.selectedFile-1].srNo=this.selectedFile
+    //  ELEMENT_DATA[this.selectedFile-2].srNo=this.selectedFile-1
+  // ELEMENT_DATA[this.selectedFile]=temp
+  //this.selectedFile=this.selectedFile-1
+  //console.log(this.selectedFile)
+
+  this.selectedFile = this.selectedFile - 1 
+  ELEMENT_DATA[this.selectedFile-1].srNo = this.selectedFile
+  ELEMENT_DATA[this.selectedFile].srNo = this.selectedFile + 1 
+
+ this.dataSource=[...ELEMENT_DATA]
+
+  }
+}
+// moveRecordUpwords(){
+//   if(this.selectedFile==1){
+//     // return
+//   }else{
+//     console.log(ELEMENT_DATA[this.selectedFile])
+//     const temp=ELEMENT_DATA[this.selectedFile]
+//   ELEMENT_DATA[this.selectedFile]=ELEMENT_DATA[this.selectedFile-1]
+//   ELEMENT_DATA[this.selectedFile-1]=temp
+//   // ELEMENT_DATA[this.selectedFile]=temp
+//   this.selectedFile=this.selectedFile-1
+//   console.log(this.selectedFile)
+//   ELEMENT_DATA[this.selectedFile].srNo=this.selectedFile
+//   ELEMENT_DATA[this.selectedFile-1].srNo=this.selectedFile
+//  console.log(this.selectedFile)
+//  this.dataSource=[...ELEMENT_DATA]
+//   }
+// }
+moveRecordDownwords(){
+  if(ELEMENT_DATA.length==this.selectedFile){
+    
+  }else{
+  // console.log(ELEMENT_DATA)
+  console.log(ELEMENT_DATA[this.selectedFile])
+  const temp=ELEMENT_DATA[this.selectedFile-1]
+  console.log(temp)
+  ELEMENT_DATA[this.selectedFile-1]=ELEMENT_DATA[this.selectedFile]
+  ELEMENT_DATA[this.selectedFile]=temp
+  console.log(this.selectedFile)
+  this.selectedFile=this.selectedFile+1
+  ELEMENT_DATA[this.selectedFile-1].srNo=this.selectedFile
+  ELEMENT_DATA[this.selectedFile-2].srNo=this.selectedFile-1
+ 
+ this.dataSource=[...ELEMENT_DATA]
+  }
+}
+  onFileSelected($event:any){
+    // console.log($event.value)
   }
 
   dropTable(event: CdkDragDrop<Merge[]>) {
+    console.log(this.dataSource)
     const prevIndex = this.dataSource.findIndex((d) => d === event.item.data);
     moveItemInArray(this.dataSource, prevIndex, event.currentIndex);
     for(var i=0; i<this.dataSource.length;i++){
       this.dataSource[i].srNo=i+1
+      
   }
+
     this.table.renderRows();
    
   }
@@ -147,25 +199,7 @@ this.bestPracticesTemp=this.bestPractices;
       formData.append("file[]",  this.myFiles[i]);
     } 
   }
-//   onUpload() {
-//     this.loading = !this.loading;
-//      console.log("onupload ",this.files);
-//     this.uploadService.upload(this.files).subscribe(
-//         (event: any) => {
-//             if (typeof (event) === 'object') {
 
-//                 // Short link via api response
-//                 this.shortLink = event.link;
-//                 console.log("inside event trigger")
-
-//                 this.loading = false; // Flag variable 
-//             }
-//         }
-//     );
-// }
- 
-
-  
 
 deleteRow(id:any){
   this.dataSource = this.dataSource.filter((item: any) => item.srNo !== id)
@@ -180,4 +214,13 @@ deleteRow(id:any){
     this.start()
   }
 
+}
+
+function intialIndex(intialIndex: any, finalIndex: any) {
+  throw new Error('Function not implemented.');
+}
+
+
+function finalIndex(intialIndex: any, finalIndex: any) {
+  throw new Error('Function not implemented.');
 }

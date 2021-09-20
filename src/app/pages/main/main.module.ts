@@ -13,6 +13,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -36,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
+    MatRadioModule,
     RouterModule.forChild(MainRoutes),
 
   ]

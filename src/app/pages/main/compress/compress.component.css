@@ -22,18 +22,19 @@ bottom: 20px;
   align-items: center;
 justify-content: center;
 }
+
 .file1{
-  width: 40rem;
-  height:20rem ;
+  width: 100%;
+  height: 22rem;
   border: none;
-  border-radius: 30px;
-  border-color: rgb(247, 253, 251);
-  border-width: 5px;
+  border-radius: 20px;
+  border-color: #9fc356;
+  border-width: 1px;
   display: flex;
   flex-direction: row;
   font-weight: 500;
   font-size: 13px;
-  border-style: ridge;
+  border-style: solid;
   /* flex-wrap: wrap; */
 }
 .saya{
@@ -100,7 +101,7 @@ margin-right: 8px;
   background: #9FC356;
 }
 .example-container {
-  height:274px;
+  max-height: 320px;
   max-width: 100%;
   overflow: auto;
   margin-top:25px;
@@ -116,9 +117,15 @@ table {
 
 
 .buybtn{
-margin-left: 12px;
+  margin-left: 13px;
+  color: white;
+  background-color: #9FC356;
+  font-size: 1rem !important;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-family: 'WorkSans-Regular';
+  border: 1px solid #9FC356;
 } 
-
 .checkbtn{
   font-size: 30px;
   color: white;
@@ -183,7 +190,7 @@ font-size: 28px;
 
 
 
-
+/* 
 .sign-up-header{
   font-family: 'WorkSans-Bold';
   width: 100%;
@@ -255,7 +262,7 @@ font-size: 28px;
   width: 90%;
   text-align: center;
   line-height: 1rem;
-}
+} */
 .label{
   width: 100%;
   font-family: 'WorkSans-Regular';
@@ -308,27 +315,11 @@ font-size: 28px;
   background-color: #c5dc97;
 }
 @media screen and (min-width: 240px){
-  .sign-up-header{
-      font-size: 0.85rem !important;
-  }
+  
   .label{
       font-size: 0.8rem !important;
   }
-  .confirmation-text{
-      font-size: 0.8rem !important;
-  }
-  .sign-up-code{
-      width: 100% !important;
-  }
-  .confirmation-block{
-      width: 100% !important;
-  }
-  .sign-up{
-      max-height: 445px !important;
-  }
-  .back-to-login{
-      padding-left: 0 !important;
-  }
+ 
   .dropdown-list-item{
       font-size: 0.8rem !important;
   }
@@ -337,27 +328,11 @@ font-size: 28px;
   }
 }
 @media screen and (min-width: 640px){
-  .sign-up-header{
-      font-size: 0.85rem !important;
-  }
+ 
   .label{
       font-size: 0.8rem !important;
   }
-  .confirmation-text{
-      font-size: 0.8rem !important;
-  }
-  .sign-up-code{
-      width: 80% !important;
-  }
-  .confirmation-block{
-      width: 90% !important;
-  }
-  .sign-up{
-      max-height: 445px !important;
-  }
-  .back-to-login{
-      padding-left: 12% !important;
-  }
+ 
   .dropdown-list-item{
       font-size: 0.8rem !important;
   }
@@ -366,27 +341,11 @@ font-size: 28px;
   }
 }
 @media screen and (min-width: 1024px){
-  .sign-up-header{
-      font-size: 1.1rem !important;
-  }
+
   .label{
       font-size: 0.9rem !important;
   }
-  .confirmation-text{
-      font-size: 0.9rem !important;
-  }
-  .sign-up-code{
-      width: 70% !important;
-  }
-  .confirmation-block{
-      width: 70% !important;
-  }
-  .sign-up{
-      max-height: 470px !important;
-  }
-  .back-to-login{
-      padding-left: 15% !important;
-  }
+ 
   .dropdown-list-item{
       font-size: 0.9rem !important;
   }
@@ -395,27 +354,10 @@ font-size: 28px;
   }
 }
 @media screen and (min-width: 1480px){
-  .sign-up-header{
-      font-size: 1.1rem !important;
-  }
-  .label{
+ .label{
       font-size: 0.9rem !important;
   }
-  .confirmation-text{
-      font-size: 0.9rem !important;
-  }
-  .sign-up-code{
-      width: 70% !important;
-  }
-  .confirmation-block{
-      width: 70% !important;
-  }
-  .sign-up{
-      max-height: 470px !important;
-  }
-  .back-to-login{
-      padding-left: 15% !important;
-  }
+  
   .dropdown-list-item{
       font-size: 0.9rem !important;
   }
@@ -423,5 +365,13 @@ font-size: 28px;
       font-size: 0.85rem !important;
   }
 }
-
+@media (min-width: 1200px){
+  .col-xl-2 {
+      -ms-flex: 0 0 18.666667%;
+      flex: 0 0 18.666667%;
+      max-width: 18.666667%;
+  
+  }
+  }
+  
 
