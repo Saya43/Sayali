@@ -76,40 +76,6 @@ input[type=file]::file-selector-button {
 input[type='file'] {
   color: transparent;
 }
-.example-button-row button,
-.example-button-row a {
-margin-right: 8px;
-}
-
-
-.example-container::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-.example-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.example-container::-webkit-scrollbar-thumb {
-  background: #c9e296;
-  border-radius: 10px;
-}
-
-.example-container::-webkit-scrollbar-thumb:hover {
-  background: #9FC356;
-}
-.example-container {
-  max-height: 320px;
-  max-width: 100%;
-  overflow: auto;
-  margin-top:25px;
-  border:1px solid black;
-  font-family: 'WorkSans-Regular';
-
-} 
-
 table {
   width: 100%;
 

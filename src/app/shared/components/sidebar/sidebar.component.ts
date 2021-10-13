@@ -32,20 +32,12 @@ export class SidebarComponent implements OnInit {
     {id:1, name: 'Merge', link:'/main/merge', icon: 'assets/Images/menu-icon/merge-icon-before-click.svg'},
     {id:2, name: 'Split', link:'/main/split', icon: 'assets/Images/menu-icon/split-icon-before-click.svg'},
     {id:3, name: 'Compress', link:'/main/compress', icon: 'assets/Images/menu-icon/compress-icon-before-click.svg'},
-    // {id:4, name: 'Projects', link:'/main-screen/projects', icon: 'assets/Images/menu-icon/poc.svg'},
-    // {id:5, name: 'Calculators', link:'/main-screen/calculators', icon: 'assets/Images/menu-icon/emi-calculator.svg'},
-    // {id:6, name: 'Lead Management', link:'/main-screen/lead-management', icon: 'assets/Images/menu-icon/lead-management.svg'},
-    // {id:7, name: 'Offers', link:'/main-screen/offers', icon: 'assets/Images/menu-icon/offers.svg'}
   ]
 
   public icons : Icons[] = [
     {id:1, icon: 'assets/Images/menu-icon/merge-icon-after-click.svg'},
     {id:2, icon: 'assets/Images/menu-icon/split-icon-after-click.svg'},
     {id:3, icon: 'assets/Images/menu-icon/compress-icon-after-click.svg'},
-    // {id:4, icon: 'assets/Images/menu-icon/poc.png'},
-    // {id:5, icon: 'assets/Images/menu-icon/emi-calculator.png'},
-    // {id:6, icon: 'assets/Images/menu-icon/lead-management.png'},
-    // {id:7, icon: 'assets/Images/menu-icon/offers.png'}
   ]
 
   // Menu item variables

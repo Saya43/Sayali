@@ -1,83 +1,43 @@
- <!-- <app-loader *ngIf="isLoading"></app-loader>
-    <app-header></app-header>
-    <div class="align">
-        <div class="container col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 ">
-        <h1 class="media">Split PDF Files</h1>
-        <form class=demo>
-            <input type="checkbox" id="check">
-                <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
-            <input type="file"   id="fileUpload" role="button" class="form align btn btn-default" accept=".pdf" (change)="onFileChange($event)" >
-    </form>
-    </div>
-    <h1 >{{files}}</h1>
-            <div *ngIf="isShown" class="d-flex flex-column container-fluid file1  col-sm-40 col-100 " id="divshow" >
-                
-                
-                <div class="w-100 d-flex justify-content-end">
-                    
-                    <div class="icon1">
-                        <span>
-                                <button type="button" class="btn btn-dark buybtn">Split</button>
-        
-                        </span>
-                    </div>
-                </div>
-               
-
-                 <div *ngFor="let file of files" class="saya">
-                    <div class="icon"><i class="fas fa-file-alt"></i></div>
-                    <div  class="demo1">{{file}}</div>
-                </div>
-                <div class=drop>
-        <label style="padding-right:12px;">Selected Ranges : </label>
-         <input class="input-field form-control form-control-sm" autocomplete="off" placeholder="Selected Range" type="text" />
-                    </div>
-            </div>
-        </div>
-    <app-footer></app-footer> -->
-    <app-loader *ngIf="isLoading"></app-loader>
-    <app-header></app-header>
+<app-loader *ngIf="isLoading"></app-loader>
+<app-header></app-header>
     <div class="content-block">
         <div class="content-header col-lg-12 col-sm-12 col-sm-12 pl-0">
             Compress Image
         </div>
         <div class="row pt-1 pl-2">
             <div class="list-of-content-items col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pl-0">
-                
-                    <!-- <input type="checkbox" id="check">
-                        <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label> -->
-                        <!-- <button type="file" id="fileUpload"  multiple accept=".pdf" (change)="onFileChange($event)">Choosefile</button> -->
-    
-                  <input type="file"   id="fileUpload" role="button"   accept=".jpg" (change)="onFileChange($event)" >
+                  <!-- <input type="file"   id="fileUpload" role="button"   accept=".jpg" (change)="onFileChange($event)" > -->
+                  <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' id="fileUpload" role="button"   accept=".jpg" (change)="onFileChange($event)" />
+                    <div class="drag-text">
+                      <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                      <h3>Drag and drop a Image or select Image</h3>
+                    </div>
+                  </div>
             </div>
             <div class="d-none d-xl-block d-lg-block d-md-none d-sm-none item-separator"></div>
             <div
                 class="
-                col-xl-9 col-lg-8 col-md-10 col-sm-11 col-11 pl-xl-5 pl-md-0 pl-lg-5 pl-sm-0 pl-0 mt-xl-0 mt-md-3 mt-lg-0 mt-sm-2 mt-2 pr-0">
-                <h1 >{{files}}</h1>
+                col-xl-9 col-lg-8 col-md-10 col-sm-11 col-11 
+                pl-xl-5 pl-md-0 pl-lg-5 pl-sm-0 pl-0 
+                mt-xl-0 mt-md-3 mt-lg-0 mt-sm-2 mt-2 pr-0"
+            >
                 <div *ngIf="isShown" class="d-flex flex-column container-fluid file1  col-sm-40 col-100 " id="divshow" >
-                
-                
                     <div class="w-100 d-flex justify-content-end">
-                        
                         <div class="icon1">
                             <span>
-                                    <button type="button" class="btn btn-dark buybtn">Compress</button>
-            
+                                <button type="button" class="btn btn-dark buybtn" (click)="submitFo()">Compress</button>
                             </span>
                         </div>
                     </div>
-                   
-    
-                     <div *ngFor="let file of files" class="saya">
+                    <div *ngFor="let file of files" class="saya">
                         <div class="icon"><i class="fas fa-file-alt"></i></div>
                         <div  class="demo1">{{file}}</div>
                     </div>
            
-        </div> 
+                </div> 
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-    
-    <app-footer ></app-footer>
+<app-footer ></app-footer>
     

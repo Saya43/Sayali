@@ -1,9 +1,4 @@
-<!-- <div class="menu-breadcrumb" >
-    <div (click)="gotoHome()" style="cursor: pointer">Home ></div>
-    <div class="breadcrumb-item">{{ breadcrum }}</div>
-</div> -->
-
- <div class="menu-breadcrumb" *ngIf="!isShown">
+<div class="menu-breadcrumb" *ngIf="!isShown">
     <div (click)="gotoHome()" role="button">Home ></div>
     <div class="breadcrumb-item">{{ breadcrumbItem }}</div>
 </div>

@@ -23,18 +23,7 @@ bottom: 20px;
 justify-content: center;
 }
 
-.checkbtn{
-  font-size: 30px;
-  color: white;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px; 
-  cursor: pointer;
-  display: none;
-}
-#check{
-  display: none;
-}
+
 
 .file1{
   width: 100%;
@@ -108,62 +97,32 @@ input[type='file'] {
   font-family: 'WorkSans-Regular';
   border: 1px solid #9FC356;
 } 
-  
-.example-button-row button,
-.example-button-row a {
-margin-right: 8px;
-}
 
-
-.example-container::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-.example-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.example-container::-webkit-scrollbar-thumb {
-  background: #c9e296;
-  border-radius: 10px;
-}
-
-.example-container::-webkit-scrollbar-thumb:hover {
-  background: #9FC356;
-}
-.example-container {
-  height:274px;
-  max-width: 100%;
-  overflow: auto;
-  margin-top:25px;
-  border:1px solid black;
-  font-family: 'WorkSans-Regular';
-
-} 
 
 table {
   width: 100%;
 
 }
 
-
-
- 
 .label{
   padding-right: 10px;
 }
 
 .drop{
   font-size: 17px;
-   margin-top: -13.5rem; 
-    display: flex;
+   align-items: center;
+  display: flex;
+  height: 9vh;
+}
+
+.invalid{
+  color:red;
+  font-size: 0.85rem;
 }
 
 .input-field{
   font-family: 'WorkSans-Regular';
-  width: 35%;
+  width: 100%;
 }
 .input-field:focus{
   border-color: #9FC356;

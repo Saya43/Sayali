@@ -25,16 +25,14 @@ export class HeaderComponent implements OnInit {
     }
 
      // On click of sidebar menu items, breadcrumb item populated
-     this._sidenavService.selectedMenuItem$.subscribe(
+    this._sidenavService.selectedMenuItem$.subscribe(
       element => {
          console.log(element);
         this.breadcrumbItem = element;
         // console.log(this.breadcrumbItem);
     });
-    this.breadcrumbItem =  localStorage.getItem("breadcrumb")
-
-
-       // On click of sidebar menu items, breadcrumb flag value
+      this.breadcrumbItem =  localStorage.getItem("breadcrumb")
+    // On click of sidebar menu items, breadcrumb flag value
        this._sidenavService.selectedMenuItemFlag$.subscribe(
         element => {
           this.breadcrumbItemFlag = element;
