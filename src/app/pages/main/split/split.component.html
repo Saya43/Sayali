@@ -10,7 +10,7 @@
                 <input class="file-upload-input" type='file' id="fileUpload" role="button"   accept=".pdf" (change)="onFileChange($event)" />
                 <div class="drag-text">
                   <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                  <h3>Drag and drop a file or select file</h3>
+                  <h3>Drag and drop a file or select   input file</h3>
                 </div>
             </div>
                 <!-- <input type="file"   id="fileUpload" role="button"   accept=".pdf" (change)="onFileChange($event)" > -->
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 
-                <div *ngFor="let file of files" class="saya">
+                <div *ngFor="let file of files" class="fileicon">
                     <div class="icon"><i class="fas fa-file-alt"></i></div>
                     <div  class="demo1">{{file}}</div>
                 </div>

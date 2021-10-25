@@ -1,17 +1,10 @@
-/* .body {
-    background-color: #eee
-} */
 
 .card:hover {
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 6px #9fc356;
 }
-/* 
-.c-details span {
-    font-weight: 300;
-    font-size: 13px
-} */
+
 .cards-block{
     overflow-y: auto;
     max-height: 80vh;
@@ -35,19 +28,6 @@ a.active,a:hover{
   }
 
 
-/* 
-.badge span {
-    background-color: #fffbec;
-    width: 60px;
-    height: 25px;
-    padding-bottom: 3px;
-    border-radius: 5px;
-    display: flex;
-    color: #fed85d;
-    justify-content: center;
-    align-items: center
-*/
-
 .progress {
     height: 10px;
     width:100%;
@@ -57,12 +37,3 @@ a.active,a:hover{
 .progress div {
     background-color: #9fc356;
 }
-
-/* .text1 {
-    font-size: 14px;
-    font-weight: 600
-}
-
-.text2 {
-    color: #a5aec0
-} */

@@ -1,3 +1,7 @@
+import { Env } from "./profiles/env";
+
 export const environment = {
-  production: true
+  env: Env.production,
+  production: true,
+  apiUrl:'http://172.24.4.66:3103/api/'
 };

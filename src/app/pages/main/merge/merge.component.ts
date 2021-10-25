@@ -117,21 +117,19 @@ toSortDescending(){
       element.srNo=index+1
 
     })
-    
-    this.dataSource = [...ELEMENT_DATA];
-
+  this.dataSource = [...ELEMENT_DATA];
 }
 
 onClear(){
   this.dataSource=[]
-  ELEMENT_DATA=[]
+  ELEMENT_DATA=[...this.dataSource]
+  this.files=[]
   this.ngOnDestroy
 }
 
 // Select File
 onFileChange(event:any)  {
-  this.bestPractices=event.target.files;
-  this.bestPracticesTemp=this.bestPractices;
+ 
     for  (var i =  0; i <  event.target.files.length; i++)  {  
       var name = event.target.files[i].name;
       var type = event.target.files[i].type;
@@ -205,15 +203,10 @@ dropTable(event: CdkDragDrop<Merge[]>) {
       this.table.renderRows();
 }
 
-// submitForm(){
-//   this.uploadService.upload(this.dataSource).subscribe(
-//     (event: any) => {
-//       console.log(event)
-//     }
-//   )
-// }
+
 
 submitForm(){
+  console.log('merged',this.dataSource)
   this.uploadService.upload(this.dataSource).subscribe(
     (event: any) => {
       let url = window.URL.createObjectURL(event);
@@ -221,23 +214,24 @@ submitForm(){
         document.body.appendChild(a);
         a.setAttribute('style', 'display: none');
         a.href = url;
-        a.download = 'abc.pdf';
+        a.download = 'merged.pdf';
         a.click();
         window.URL.revokeObjectURL(url);
         a.remove();
-      console.log(event)
     }
   )
 }
 
+
 //Delete row of table
 deleteRow(id:any){
-  this.dataSource = this.dataSource.filter((item: any) => item.srNo !== id)
+  this.dataSource = ELEMENT_DATA.filter((item: any) => item.srNo !== id)
   this.dataSource = [...this.dataSource];
+  ELEMENT_DATA=[...this.dataSource]
   for(var i=0; i<this.dataSource.length;i++){
     this.dataSource[i].srNo=i+1
   } 
-
+  console.log(this.dataSource)
 }
 
 

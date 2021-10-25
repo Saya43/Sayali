@@ -1,16 +1,4 @@
-.align{
-  font-family: 'WorkSans-Bold';
-  outline: none;
-  box-shadow: none;
-  position: relative;
-  bottom: 20px;
-}
-
-
-demo{
-  margin-top: 50px;
-}
-.file1{
+ .file1{
   width: 100%;
   max-height: 30rem;
   padding-bottom: 15px;
@@ -23,20 +11,8 @@ demo{
   font-weight: 500;
   font-size: 13px;
   border-style: solid;
-  /* flex-wrap: wrap; */
 }
-.icon{
-  width: 80px;
-  height: 70px;
-  background-color: aliceblue;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  margin-top: 30px; 
-}
-
+/*
 
 input[type=file]::file-selector-button {
   height: 50px;
@@ -53,15 +29,10 @@ input[type='file'] {
   color: transparent;
 }
 
-
-.not-allowed-cursor{
-  cursor: not-allowed;
-}
-
 table {
   width: 100%;
 
-}
+} */
 .button{
   color:#9fc356;
 
@@ -77,41 +48,7 @@ table {
   font-family: 'WorkSans-Regular';
   border: 1px solid #9FC356;
 } 
-.buy{
-  margin-left: 13px;
-  color: white;
-  background-color: #9FC356;
-  font-size: 1rem !important;
-  padding: 2px 8px;
-  border-radius: 5px;
-  font-family: 'WorkSans-Regular';
-  border: 1px solid #9FC356;
-} 
 
-.checkbtn{
-  font-size: 30px;
-  color: white;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px; 
-  cursor: pointer;
-  display: none;
-}
-#check{
-  display: none;
-}
-
-.icon1 {
-
-margin-top: 10px;
-margin-bottom: 0px;
-/* position: fixed; */
-justify-content: center;
-font-size: 28px;
-}  
-.label{
-  padding-right: 10px;
-}
 
 .reorder-button{
   display: flex;

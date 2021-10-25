@@ -292,7 +292,49 @@ margin-right: 8px;
   border:1px solid black;
   font-family: 'WorkSans-Regular';
 
-} 
+}
+/*
+    input file selection
+*/
+.file1{
+  width: 100%;
+  height: 22rem;
+  border: none;
+  border-radius: 20px;
+  border-color: #9fc356;
+  border-width: 1px;
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 13px;
+  border-style: solid;
+}
+  input[type=file]::file-selector-button {
+    height: 50px;
+    width: 175px;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: transparent;
+    font-family: 'WorkSans-Bold';
+    margin-right:10px;
+    font-weight: 600;
+  
+  }
+  input[type='file'] {
+    color: transparent;
+  }
+  table {
+    width: 100%;
+  
+  }
+  .icon1 {
+
+    margin-top: 10px;
+    margin-bottom: 0px;
+    justify-content: center;
+    font-size: 28px;
+    } 
+  
 
    /*
     File Upload css
@@ -310,10 +352,10 @@ margin-right: 8px;
     cursor: pointer;
   }
   
-  .image-upload-wrap{
+  .image-upload-wrap {
     border: 2px dashed #9fc356;
     position: relative;
-    border-radius: 10px;
+    border-radius: 10px !important;
   }
   h3 {
     font-size: 1rem;
@@ -333,7 +375,7 @@ margin-right: 8px;
   }
   
   .drag-text h3 {
-    font-weight: 100;
+    font-weight: 100 !important;
     word-break: break-word;
     font-family: 'WorkSans-Regular' !important;
     padding: 20px 0;

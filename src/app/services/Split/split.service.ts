@@ -1,30 +1,27 @@
 
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SplitService {
+split='split'
+accessToken:any
 
   constructor(private http:HttpClient) { }
-  baseApiUrl = "https://file.io"
-  //during making http request add observable 
-  upload(dataSource:any,Ranges:any) {
   
-    // Create form data
-    const formData = new FormData(); 
-    //      for  (var i =  0; i <  dataSource.length; i++)  { 
-    //   var data:any=dataSource[i] 
-    //   formData.append("file",data);
-    //   formData.append("ranges",Ranges)
-     
-    //  }
-    dataSource[0].ranges=Ranges
+  upload(dataSource:any,Ranges:any):Observable<any>  {
+    this.accessToken= sessionStorage.getItem('accessToken');
+
+    const headers = { 'Authorization': `Bearer ${this.accessToken}`}  
     console.log(dataSource)
-    // Make http post request over api
-    // with formData as req
-    //return this.http.post(this.baseApiUrl, formData)
-}
+    const formData = new FormData(); 
+    formData.append("file",dataSource[0]);
+    formData.append("pageRange",Ranges);
+
+    console.log(formData.getAll("files"))
+    return this.http.post(environment.apiUrl+this.split, formData,{'headers':headers,responseType:'blob'})}
 }

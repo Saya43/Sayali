@@ -85,13 +85,29 @@ constructor(private httpClient:  HttpClient,private uploadService: SplitService)
      else if(result==true){
       let temp=this.ranges.split(",")
       console.log(temp)
-      for(let i=0;i<temp.length;i++){
-        if(temp[i].includes("-")){
+      for(let i=0;i<temp.length;i++)
+      {
+        if(temp[i].includes("-"))
+        {
              let temp1=temp[i].split("-")
-             if(temp1[0]<temp1[1]){
+             if(temp1[0]<temp1[1])
+             {
               this.validationFlag=false
 
-              this.uploadService.upload(this.dataSource,this.ranges)
+              // this.uploadService.upload(this.dataSource,this.ranges).subscribe(
+              //   (event: any) => {
+              //     let url = window.URL.createObjectURL(event);
+              //       let a = document.createElement('a');
+              //       document.body.appendChild(a);
+              //       a.setAttribute('style', 'display: none');
+              //       a.href = url;
+              //       a.download = 'splited.zip';
+              //       a.click();
+              //       window.URL.revokeObjectURL(url);
+              //       a.remove();
+              //     console.log(event)
+              //   }
+              // )
              }
              else{
                //error messagre shown
@@ -110,8 +126,24 @@ constructor(private httpClient:  HttpClient,private uploadService: SplitService)
 
 
       }
+      if(this.validationFlag==false){
+             this.uploadService.upload(this.dataSource,this.ranges).subscribe(
+                (event: any) => {
+                  let url = window.URL.createObjectURL(event);
+                    let a = document.createElement('a');
+                    document.body.appendChild(a);
+                    a.setAttribute('style', 'display: none');
+                    a.href = url;
+                    a.download = 'splited.zip';
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                  console.log(event)
+                }
+              )
+      }
      }
-    //this.uploadService.upload(this.dataSource,this.ranges)
+    // this.uploadService.upload(this.dataSource,this.ranges)
 
     }
   

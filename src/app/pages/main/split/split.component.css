@@ -1,53 +1,5 @@
 
-.align{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 20px;
-  font-family: 'WorkSans-Bold';
-  outline: none;
-box-shadow: none;
-position: relative;
-bottom: 20px;
-}
-
-.container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.demo{
-  margin-left: 9rem;
-  display: flex;
-  align-items: center;
-justify-content: center;
-}
-
-
-
-.file1{
-  width: 100%;
-  height: 22rem;
-  border: none;
-  border-radius: 20px;
-  border-color: #9fc356;
-  border-width: 1px;
-  display: flex;
-  flex-direction: row;
-  font-weight: 500;
-  font-size: 13px;
-  border-style: solid;
-  /* flex-wrap: wrap; */
-}
-.icon1 {
-
-  margin-top: 10px;
-  margin-bottom: 0px;
-  /* position: fixed; */
-  justify-content: center;
-  font-size: 28px;
-  } 
-.saya{
+.fileicon{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -55,9 +7,9 @@ justify-content: center;
 }
 
 .icon{
-width: 80px;
-height: 70px;
-background-color: aliceblue;
+  width: 80px;
+  height: 70px;
+  background-color: aliceblue;
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -72,21 +24,6 @@ background-color: aliceblue;
   padding-top: 5%;
 }
 
-input[type=file]::file-selector-button {
-  height: 50px;
-  width: 175px;
-  border-radius: 20px;
-  font-size: 20px;
-  background-color: transparent;
-  font-family: 'WorkSans-Bold';
-  margin-right:10px;
-  font-weight: 600;
-
-}
-input[type='file'] {
-  color: transparent;
-}
-
 .buybtn{
   margin-left: 13px;
   color: white;
@@ -98,19 +35,17 @@ input[type='file'] {
   border: 1px solid #9FC356;
 } 
 
-
-table {
+.input-field{
+  font-family: 'WorkSans-Regular';
   width: 100%;
-
 }
-
-.label{
-  padding-right: 10px;
+.input-field:focus{
+  border-color: #9FC356;
 }
 
 .drop{
   font-size: 17px;
-   align-items: center;
+  align-items: center;
   display: flex;
   height: 9vh;
 }
@@ -120,17 +55,8 @@ table {
   font-size: 0.85rem;
 }
 
-.input-field{
-  font-family: 'WorkSans-Regular';
-  width: 100%;
-}
-.input-field:focus{
-  border-color: #9FC356;
-}
-.form-group{
-  /* margin-top:-14rem; */
-  margin-bottom: 0.5rem !important;
-}
+ 
+
 @media screen and (min-width: 1024px){
   .media{
     font-size:40px !important;
@@ -156,6 +82,6 @@ table {
       max-width: 18.666667%;
   
   }
-  }
+}
   
 

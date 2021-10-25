@@ -6,10 +6,7 @@ import { SplitComponent } from '../main/split/split.component';
 import { MainComponent } from './main.component';
 
 export const MainRoutes: Routes = [
-    // {
-    //     path: 'main',
-    //     component: MainComponent
-    // },
+    
     {
         path: '',
         children: [
