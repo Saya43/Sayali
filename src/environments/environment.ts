@@ -7,16 +7,10 @@ import { Env } from "./profiles/env";
 export const environment = {
   env: Env.dev,
   production: false,
-  apiUrl:'http://localhost:8080/api/'
-  // apiUrl:'http://172.24.4.66:3103/api/'
+  //  apiUrl:'http://localhost:8080/api/',
+  //  authenticateUrl :'http://localhost:8080/authenticate'
+    apiUrl:'https://internal-uat-cp.godrejhf.com/api/',
+   authenticateUrl :'https://internal-uat-cp.godrejhf.com/authenticate'
 
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

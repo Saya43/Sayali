@@ -37,9 +37,8 @@ input:focus, button:focus{
     display: flex;
     flex-direction: column;
     position:relative;
-     padding: 8% 6%; 
-     padding-top: 15px;
-    /* padding:4rem; */
+    padding: 8% 6%; 
+    padding-top: 15px;
     margin:10px 10px 30px;
     box-shadow: 2px 2px 3px 1px rgb(191 191 191);
     height:15rem;
@@ -58,11 +57,8 @@ input:focus, button:focus{
 }
 .mat-drawer{
     min-width: 70px;
-    /* position: relative !important; */
 }
-/* .mat-drawer-container{
-    display: flex !important;
-} */
+
 .mat-list-base{
     width: 100%;
     padding: 15px 15px 15px 20px;

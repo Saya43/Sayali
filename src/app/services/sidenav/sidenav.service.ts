@@ -22,9 +22,7 @@ export class SidenavService {
   setBreadcrumb(name: string, flag: boolean){
     localStorage.setItem("breadcrumb", name);
 
-    // console.log(name);
     this.selectedMenuItem.next(name);
     this.selectedMenuItemFlag.next(flag);
-    console.log(name)
   }
 }

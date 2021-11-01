@@ -3,6 +3,6 @@ import { Env } from '../environments/profiles/env';
 export const environment = {
     env: Env.dev,
     production: false,
-    apiUrl:'http://172.24.4.66:3103/api/'
-    
+    apiUrl:'https://internal-uat-cp.godrejhf.com/api/',
+    authenticateUrl :'https://internal-uat-cp.godrejhf.com/authenticate'
 };
