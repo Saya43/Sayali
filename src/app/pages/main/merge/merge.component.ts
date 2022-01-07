@@ -4,7 +4,9 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragHandle} from '@a
 import {MatTable} from '@angular/material/table';
 import  {  FormGroup,  FormControl,  Validators}  from  '@angular/forms';
 import{MergeService} from '../../../services/Merge/merge.service'
-
+import { AuthService } from '../../../services/auth/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import * as $ from 'jquery';
 interface Merge{
   lastModified: any,
   lastModifiedDate: any,
@@ -34,23 +36,40 @@ export class MergeComponent implements OnInit,OnDestroy {
   files:string  []  =  [];
   myFiles: any;
   isLoading=false;
+  success:boolean=false;
+  isError0:boolean=false;
+  isError4:boolean=false;
+  isErrorNotPdf:boolean=false;
+  error500:boolean=false;
+  isError401:boolean=false;
   isShown: boolean = false ;// hidden by default
   totalCount:number;
   bestPractices: any = [];
   bestPracticesTemp: any = [];
   selectedFile:any
   sort:boolean=true
+
   uploadForm =  new  FormGroup({
      file:  new  FormControl('',  [Validators.required])
   });
  
-  constructor(private http: HttpClient,private uploadService: MergeService)  {  }
+  constructor(private http: HttpClient,private uploadService: MergeService,private authservice:AuthService,private _snackBar: MatSnackBar)  { 
+   
+   }
  /**
    * Show loader screen
    */
-  start() {
+  pageLoader() {
     this.isLoading = true;
     this.wait(2000).then( () => this.isLoading = false );
+  }
+  start() {
+    this.isLoading = true;
+    // this.wait(2000).then( () => this.isLoading = false );
+  }
+  stop() {
+    this.isLoading = false;
+    // this.wait(2000).then( () => this.isLoading = false );
   }
   async wait(ms: number): Promise<void> {
     return new Promise<void>( resolve => setTimeout( resolve, ms) );
@@ -58,6 +77,37 @@ export class MergeComponent implements OnInit,OnDestroy {
   get f(){
       return  this.uploadForm.controls;
    }
+   
+snackBarSuccess(message:any){
+
+  this._snackBar.open(message, ' ', {
+  duration: 3000
+  });
+   $(".mat-snack-bar-container").css({
+    'background-color': '#9FC356',
+    'color':'white' 
+
+  });
+  $(".mat-simple-snackbar span").css({
+    'font-weight': '500',
+  });
+}
+
+
+snackBarFailure(err:any){
+  this._snackBar.open(err,'', {
+  duration: 3000,
+  });
+  $(".mat-snack-bar-container").css({
+    'background-color': 'red',
+    'color':'white' 
+
+  });
+  $(".mat-simple-snackbar span").css({
+    'font-weight': '500'
+  });
+}
+
 // Find Duplicate Elements In table
 toFindDuplicates() {
   let resultToReturn = false;
@@ -81,7 +131,6 @@ toSort(Sort:any){
 }
 toSortAscending(){
   if(this.selectedFile>=0){
-  console.log(this.selectedFile)
   this.selectedFile=-1
   }  
   ELEMENT_DATA.sort((a, b) => { 
@@ -105,7 +154,6 @@ toSortAscending(){
 }
 toSortDescending(){
   if(this.selectedFile>=0){
-    console.log(this.selectedFile)
     this.selectedFile=-1
   }
   ELEMENT_DATA.sort((a, b) => { 
@@ -121,6 +169,7 @@ toSortDescending(){
 }
 
 onClear(){
+ 
   this.dataSource=[]
   ELEMENT_DATA=[...this.dataSource]
   this.files=[]
@@ -129,6 +178,26 @@ onClear(){
 
 // Select File
 onFileChange(event:any)  {
+  var allowedExtension = ".pdf";
+  var hasInvalidFiles = false;
+  for  (var i =  0; i <  event.target.files.length; i++)  {  
+    var name = event.target.files[i].name;
+     
+    if (!name.endsWith(allowedExtension)) {
+      hasInvalidFiles = true;
+    }
+    
+
+  }
+  if(hasInvalidFiles) {
+    //this.selectedFile.value = ""; 
+   // alert("asdas","Unsupported file selected.");
+   this.snackBarFailure('Please select only PDF File')
+
+    // this.isErrorNotPdf=true
+    //     this.wait(3000).then( () => this.isErrorNotPdf = false );
+    // return;
+  }
  
     for  (var i =  0; i <  event.target.files.length; i++)  {  
       var name = event.target.files[i].name;
@@ -188,7 +257,7 @@ moveRecordDownwords(){
 }
 // Selection of file using radio button
 onFileSelected($event:any){
-// console.log($event.value)
+// ($event.value)
 }
 
 //  Drag and drop functionality
@@ -206,20 +275,70 @@ dropTable(event: CdkDragDrop<Merge[]>) {
 
 
 submitForm(){
-  console.log('merged',this.dataSource)
+
+  this.start();
   this.uploadService.upload(this.dataSource).subscribe(
+
     (event: any) => {
       let url = window.URL.createObjectURL(event);
         let a = document.createElement('a');
         document.body.appendChild(a);
         a.setAttribute('style', 'display: none');
         a.href = url;
-        a.download = 'merged.pdf';
+        var today = new Date(); 
+        var dd = String(today.getDate()).padStart(2, '0');
+        var MM = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        var hh=String(today.getHours()).padStart(2, '0');
+        var mm=String(today.getMinutes()).padStart(2, '0');
+        var ss=String(today.getSeconds()).padStart(2, '0');
+        var datetime= dd+MM+yyyy+hh+mm+ss;
+        a.download = 'merged_' +datetime+'.pdf';
+      
+        // if(event.status=200){
+        //   this.success=true
+        //   this.wait(3000).then( () => this.success = false );
+        // }
         a.click();
         window.URL.revokeObjectURL(url);
         a.remove();
-    }
+        //this.snackBarSuccess(err)
+        console.log(event)
+        this.snackBarSuccess('Merged Successfully')
+        this.stop();
+    },(err)=>{
+   
+      console.log(err)
+    this.snackBarFailure(err)
+      // if(err.status==0){
+                    
+      //   this.isError0=true
+      //   this.wait(5000).then( () => this.isError0 = false );
+
+      // }
+      if(err.status==401){
+        this.authservice.authenticateUser().subscribe(res => {
+          sessionStorage.setItem('accessToken', res.token)
+          })
+          // this.isError401=true
+          // this.wait(3000).then( () => this.isError401 = false );
+      }
+      // if(err.status==400){
+      //   this.isError4=true
+      //   this.wait(3000).then( () => this.isError4 = false );
+      // }
+      // if(err.status==500){
+
+      //   this.error500=true
+      //   this.wait(2000).then( () => this.error500 = false );
+
+      // }
+       this.stop();
+    },
+
+
   )
+
 }
 
 
@@ -231,12 +350,11 @@ deleteRow(id:any){
   for(var i=0; i<this.dataSource.length;i++){
     this.dataSource[i].srNo=i+1
   } 
-  console.log(this.dataSource)
 }
 
 
   ngOnInit(): void {
-    this.start()
+     this.pageLoader()
     this.dataSource=[]
     ELEMENT_DATA=[]
   }

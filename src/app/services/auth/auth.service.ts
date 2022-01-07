@@ -13,9 +13,10 @@ export class AuthService {
   constructor(private http:HttpClient) { }
     authenticateUser():Observable<any>{
 
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 'content-type': 'application/json',
+                      'access-control-allow-origin':'*',
+                      'X-Frame-Options': 'deny'                    }  
     const body=JSON.stringify(this.data);
-    console.log(body)
     return this.http.post(environment.authenticateUrl, this.data,{'headers':headers})
 }
 }

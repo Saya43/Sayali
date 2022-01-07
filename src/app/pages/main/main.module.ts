@@ -11,13 +11,10 @@ import { LoaderComponent, SidebarComponent } from 'src/app/shared';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatTableModule} from '@angular/material/table';
-import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
-
-
-
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -38,6 +35,8 @@ import { MatRadioModule } from '@angular/material/radio';
     FormsModule,
     ReactiveFormsModule,
     MatRadioModule,
+    MatSnackBarModule,
+    MatSlideToggleModule,
     RouterModule.forChild(MainRoutes),
 
   ]

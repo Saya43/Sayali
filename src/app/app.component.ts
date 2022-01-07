@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'My-app';
-  accessToken='abcd'
+  // accessToken='abcd'
   ngOnInit(){
   }
 }

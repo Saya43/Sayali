@@ -16,12 +16,13 @@ accessToken:any
   upload(dataSource:any,Ranges:any):Observable<any>  {
     this.accessToken= sessionStorage.getItem('accessToken');
 
-    const headers = { 'Authorization': `Bearer ${this.accessToken}`}  
-    console.log(dataSource)
+    const headers = { 'Authorization': `Bearer ${this.accessToken}`,
+                      'access-control-allow-origin':'*',
+                      'X-Frame-Options': 'deny'
+                    }  
     const formData = new FormData(); 
     formData.append("file",dataSource[0]);
     formData.append("pageRange",Ranges);
 
-    console.log(formData.getAll("files"))
     return this.http.post(environment.apiUrl+this.split, formData,{'headers':headers,responseType:'blob'})}
 }

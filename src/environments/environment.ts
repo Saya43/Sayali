@@ -7,10 +7,10 @@ import { Env } from "./profiles/env";
 export const environment = {
   env: Env.dev,
   production: false,
-  //  apiUrl:'http://localhost:8080/api/',
-  //  authenticateUrl :'http://localhost:8080/authenticate'
-    apiUrl:'https://internal-uat-cp.godrejhf.com/api/',
-   authenticateUrl :'https://internal-uat-cp.godrejhf.com/authenticate'
+  apiUrl:'http://localhost:3307/api/',
+  authenticateUrl :'http://localhost:3307/authenticate'
+    //  apiUrl:'https://internal-uat-cp.godrejhf.com/api/',
+    // authenticateUrl :'https://internal-uat-cp.godrejhf.com/authenticate'
 
 };
 

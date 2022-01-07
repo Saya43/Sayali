@@ -6,9 +6,10 @@
 }
 
 .cards-block{
-    overflow-y: auto;
-    max-height: 80vh;
+    max-height: 90vh;
     padding:0 10%;
+    justify-content: center;
+    align-items: center;
 }
 .icon {
     width: 40px; 

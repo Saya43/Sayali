@@ -5,6 +5,9 @@
     <mat-sidenav-content [@onMainContentChange]="onSideNavChange ? 'open': 'close'">
         <div class="main-content">
             <router-outlet></router-outlet>
+            <p *ngIf="isError4" class='error text-danger d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Request failed....</p>
+            <p *ngIf="success" class='success  d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Success..Request completed successfully</p>
+            <p *ngIf="error500" class='error text-danger d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> something went wrong....</p>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

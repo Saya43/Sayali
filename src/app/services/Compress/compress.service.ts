@@ -16,7 +16,10 @@ accessToken:any
   upload(dataSource:any):Observable<any> {
     this.accessToken= sessionStorage.getItem('accessToken');
 
-    const headers = { 'Authorization': `Bearer ${this.accessToken}`}  
+     const headers = { 'Authorization': `Bearer ${this.accessToken}`,
+                      'access-control-allow-origin':'*',
+                      'X-Frame-Options': 'deny'
+    }  
     // Create form data
     const formData = new FormData(); 
     for  (var i =  0; i <  dataSource.length; i++)  { 
@@ -24,8 +27,7 @@ accessToken:any
       formData.append("file",data);
      
     }
-    console.log(formData.getAll("file"))
     return this.http.post(environment.apiUrl+this.compress, formData,{'headers':headers,responseType:'blob'})
-
+    
 }
 }

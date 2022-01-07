@@ -1,63 +1,65 @@
 <app-header></app-header>
 <div class="container mt-4 mb-2">
-    <div class="row cards-block">
-        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 " role="button">
-            <div class="card" (click)="merge()" >
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-row align-items-center">
-                        <div class="icon"><i class="fas fa-compress-alt fa-lg"></i> </div>
-                    </div>
-                </div>
-                <div class="mt-3">
-                    <h3 class="heading">Merge PDF</h3>
-                    <div class="text">
-                        <span> Combine two or more PDF documents in only one file . You can turn several documents into one file  fg, using the merge PDF tools. </span>
+    <div class="content-block">
+        <div class="row cards-block">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 " role="button">
+                <div class="card" (click)="merge()" >
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"><i class="fas fa-compress-alt fa-lg"></i> </div>
+                        </div>
                     </div>
                     <div class="mt-3">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <h3 class="heading">Merge PDF</h3>
+                        <div class="text">
+                            <span> Combine two or more PDF documents in only one file . You can turn several documents into one file  fg, using the merge PDF tools. </span>
+                        </div>
+                        <div class="mt-3">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 " role="button">
-            <div class="card " (click)="split()">
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-row align-items-center">
-                        <div class="icon"><i class="far fa-file-pdf fa-lg"></i></div>
-                    </div>
-                </div>
-                <div class="mt-3">
-                    <h3 class="heading">Split PDF<br></h3>
-                    <div class="text">
-                        <span>Breaking single file into several PDF files.You can convert one file into several PDF files  usually at regular intervals,using the split PDF tools.</span>
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12 " role="button">
+                <div class="card " (click)="split()">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"><i class="far fa-file-pdf fa-lg"></i></div>
+                        </div>
                     </div>
                     <div class="mt-3">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <h3 class="heading">Split PDF<br></h3>
+                        <div class="text">
+                            <span>Breaking single file into several PDF files.You can convert one file into several PDF files  usually at regular intervals,using the split PDF tools.</span>
+                        </div>
+                        <div class="mt-3">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12" role="button">
-            <div class="card" (click)="compress()">
-                <div class="d-flex justify-content-between">
-                    <div class="d-flex flex-row align-items-center">
-                        <div class="icon"><i class="fas fa-compress-arrows-alt"></i> </div>
-                    </div>
-                </div>
-                <div class="mt-3">
-                    <h3 class="heading">Compress Image<br></h3>
-                    <div class="text">
-                        <span> Minimizing the size in bytes of a graphics file without degrading the quality of the image . You can compress size of the image , using compress tool .</span>
-                    </div>
-                    <div class="mt-3">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-8 col-12" role="button">
+                <div class="card" (click)="compress()">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="icon"><i class="fas fa-compress-arrows-alt"></i> </div>
                         </div>
                     </div>
+                    <div class="mt-3">
+                        <h3 class="heading">Compress Image<br></h3>
+                        <div class="text">
+                            <span> Minimizing the size in bytes of a graphics file without degrading the quality of the image . You can compress size of the image , using compress tool .</span>
+                        </div>
+                        <div class="mt-3">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>

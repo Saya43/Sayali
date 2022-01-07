@@ -1,10 +1,13 @@
 
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 .fileicon{
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 35px;
 }
+
 
 .icon{
   width: 80px;
@@ -17,6 +20,10 @@
   font-size: 50px;
   margin-top: 30px; 
 }
+/* .example-form mat-slide-toggle {
+  margin: 8px 0;
+  display: block;
+} */
 
 .demo1{
   text-align: center;

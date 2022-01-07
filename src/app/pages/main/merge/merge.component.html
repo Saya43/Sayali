@@ -100,5 +100,13 @@
               </div>
           </div>
     </div> 
+   
+    <p *ngIf="isError4" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Invalid Request.</p>
+    <p *ngIf="success " class='success  d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Request completed successfully.</p>
+    <p *ngIf="error500" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Something went wrong.</p>
+    <p *ngIf="isError401" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please try again later.</p>
+    <p *ngIf="isError0" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Something went wrong. Please try again.</p>
+    <p *ngIf="isErrorNotPdf" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please select only PDF files</p>
+
 </div>
 <app-footer ></app-footer>

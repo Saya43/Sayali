@@ -64,3 +64,15 @@
     font-family: 'WorkSans-Bold';
     color: white;
 }
+/* .cdk-overlay-container {
+    position: fixed !important;
+    z-index: 900 !important;
+    bottom: 40px !important;
+    width: 100% !important;
+  }
+  .cdk-overlay-pane{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+  } */
+  

@@ -2,18 +2,50 @@
 <app-header></app-header>
     <div class="content-block">
         <div class="content-header col-lg-12 col-sm-12 col-sm-12 pl-0">
-            Compress Image
+            Compress
         </div>
-        <div class="row pt-1 pl-2">
-            <div class="list-of-content-items col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pl-0">
-                  <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' id="fileUpload" role="button"   accept=".jpg" (change)="onFileChange($event)" />
+      
+        <div class="row pt-1 pl-2">      
+            <div *ngIf="isChecked==true"class="list-of-content-items col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pl-0" >
+                <!-- <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class="  example-radio-group"
+                [(ngModel)]="status">
+                <mat-radio-button class="example-radio-button" *ngFor="let statuses of filterByStatus; let i = index" [value]="statuses.id" [checked]="statuses.id == 2"  (change)="filterStatusOptions($event)">
+                    {{statuses.name}}
+                </mat-radio-button>
+            </mat-radio-group> -->
+            <div class="d-flex">
+                <div>select input file : </div>
+                <mat-slide-toggle [(ngModel)]="isChecked">: {{isChecked?'Image':'PDF'}}</mat-slide-toggle>
+            </div>
+            
+            <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' [disabled]="disabled" id="fileUpload" role="button"   accept=".jpg,.jpeg,.pdf" (change)="onFileChange($event)" />
                     <div class="drag-text">
                       <i class="fas fa-cloud-upload-alt upload-icon"></i>
                       <h3>Drag and drop a Image or select Image</h3>
                     </div>
                   </div>
             </div>
+            <div *ngIf="isChecked==false"class="list-of-content-items col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pl-0" >
+                <!-- <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class=" example-radio-group"
+                [(ngModel)]="status">
+                <mat-radio-button class="example-radio-button" *ngFor="let statuses of filterByStatus; let i = index" [value]="statuses.id" [checked]="statuses.id == 2"  (change)="filterStatusOptions($event)">
+                    {{statuses.name}}
+                </mat-radio-button>
+            </mat-radio-group> -->
+            <mat-slide-toggle [(ngModel)]="isChecked">Selected Compresser: {{isChecked?'Image':'PDF'}}</mat-slide-toggle>
+                <div class="image-upload-wrap">
+                  <input class="file-upload-input" type='file' [disabled]="disabled" id="fileUpload" role="button"   accept=".jpg,.jpeg,.pdf" (change)="onFileChange($event)" />
+                  <div class="drag-text">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Drag and drop a file or select a file</h3>
+                  </div>
+                </div>
+          </div>
             <div class="d-none d-xl-block d-lg-block d-md-none d-sm-none item-separator"></div>
             <div
                 class="
@@ -37,6 +69,16 @@
                 </div> 
             </div>
         </div>
+<div class="errMsgContainer">
+        <p *ngIf="isError4" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Invalid Request.</p>
+        <p *ngIf="success" class='success  d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Request completed successfully.</p>
+        <p *ngIf="error500" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Something went wrong.</p>
+        <p *ngIf="isError401" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please try again later.</p>
+        <p *ngIf="isError0" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Something went wrong. Please try again.</p>
+        <p *ngIf="isErrorNotJpg" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please select only JPG/JPEG files</p>
+        <p *ngIf="isErrorNotPdf" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please select only PDF files</p>
+
     </div>
+</div>
 <app-footer ></app-footer>
     

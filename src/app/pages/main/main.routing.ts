@@ -18,6 +18,11 @@ export const MainRoutes: Routes = [
                 path: 'split',
                 component: SplitComponent
             },
+            // {
+            // path: 'compress',
+            // redirectTo: '/home',
+            // pathMatch: 'full'
+            // }
             {
                 path:'compress',
                 component:CompressComponent

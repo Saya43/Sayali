@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
    compress(){
       this.router.navigate(["main/compress"])
    }
+   
    ngOnInit(): void {
-      console.log(window.location.pathname.split('2')[0].split('/')[1])
       if(window.location.pathname.split('2')[0].split('/')[1]=='home'){
             this.isShown=true;
       }
@@ -31,9 +31,7 @@ export class HomeComponent implements OnInit {
       // On click of sidebar menu items, breadcrumb item populated
       this._sidenavService.selectedMenuItem$.subscribe(
          element => {
-         // console.log(element);
          this.breadcrumbItem = element;
-         console.log(this.breadcrumbItem);
       });
    }
 

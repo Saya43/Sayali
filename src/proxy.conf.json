@@ -1,7 +1,8 @@
 {
     "/api/*": {
-        "target": "https://internal-uat-cp.godrejhf.com",
+        "target": "https://http://localhost:3307",
         "secure": false,
         "logLevel": "debug"
     }
 }
+

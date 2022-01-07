@@ -31,13 +31,13 @@ export class SidebarComponent implements OnInit {
   public pages: Page[] = [
     {id:1, name: 'Merge', link:'/main/merge', icon: 'assets/Images/menu-icon/merge-icon-before-click.svg'},
     {id:2, name: 'Split', link:'/main/split', icon: 'assets/Images/menu-icon/split-icon-before-click.svg'},
-    {id:3, name: 'Compress', link:'/main/compress', icon: 'assets/Images/menu-icon/compress-icon-before-click.svg'},
+     {id:3, name: 'Compress', link:'/main/compress', icon: 'assets/Images/menu-icon/compress-icon-before-click.svg'},
   ]
 
   public icons : Icons[] = [
     {id:1, icon: 'assets/Images/menu-icon/merge-icon-after-click.svg'},
     {id:2, icon: 'assets/Images/menu-icon/split-icon-after-click.svg'},
-    {id:3, icon: 'assets/Images/menu-icon/compress-icon-after-click.svg'},
+     {id:3, icon: 'assets/Images/menu-icon/compress-icon-after-click.svg'},
   ]
 
   // Menu item variables
@@ -90,6 +90,9 @@ export class SidebarComponent implements OnInit {
    * 1. Show menu items
    * 2. Highlight menu items
    */
+   gotoHome(){
+    this.router.navigate(["home"])
+  }
   onSidenavToggle() {
     this.sideNavState = !this.sideNavState;
 

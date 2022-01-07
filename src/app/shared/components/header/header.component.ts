@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    // console.log(window.location.pathname.split('2')[0].split('/')[1])
     if(window.location.pathname.split('2')[0].split('/')[1]=='home'){
       this.isShown=true;
       this.breadcrumbItemFlag=false;
@@ -27,9 +26,7 @@ export class HeaderComponent implements OnInit {
      // On click of sidebar menu items, breadcrumb item populated
     this._sidenavService.selectedMenuItem$.subscribe(
       element => {
-         console.log(element);
         this.breadcrumbItem = element;
-        // console.log(this.breadcrumbItem);
     });
       this.breadcrumbItem =  localStorage.getItem("breadcrumb")
     // On click of sidebar menu items, breadcrumb flag value

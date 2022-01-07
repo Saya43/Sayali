@@ -1,8 +1,11 @@
-
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+ import {Observable} from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
+// import { Observable } from 'rxjs/Rx'
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +18,24 @@ accessToken:any
     
   //during making http request add observable 
   upload(dataSource:any):Observable<any> {
-    this.accessToken= sessionStorage.getItem('accessToken');
+   this.accessToken= sessionStorage.getItem('accessToken');
 
-    const headers = { 'Authorization': `Bearer ${this.accessToken}`}  
-    // Create form data
-    const formData = new FormData(); 
-      for  (var i =  0; i <  dataSource.length; i++)  { 
-        var data:any=dataSource[i] 
-        formData.append("files",data);
-      }
-      console.log(headers)
-    return this.http.post(environment.apiUrl+this.merge, formData,{'headers':headers,responseType:'blob'})
-  }
+   const headers = { 'Authorization': `Bearer ${this.accessToken}`,
+                     'access-control-allow-origin':'*',
+                     'X-Frame-Options': 'deny'
+                     }  
+   // Create form data
+   const formData = new FormData(); 
+     for  (var i =  0; i <  dataSource.length; i++)  { 
+       var data:any=dataSource[i] 
+       formData.append("files",data);
+     }
+     return this.http.post(environment.apiUrl+this.merge, formData,{'headers':headers,responseType:'blob'}).pipe(catchError(this.errorHandler))
+    }
+
+   errorHandler(error: HttpErrorResponse) {
+        console.log(error.message)
+        return throwError(error.message || "server error.");
+    }
 
 }

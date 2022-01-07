@@ -7,7 +7,7 @@
     <div class="row pt-1 pl-2">
         <div class="list-of-content-items col-xl-2 col-lg-3 col-md-4 col-sm-6 col-7 pl-0">
             <div class="image-upload-wrap">
-                <input class="file-upload-input" type='file' id="fileUpload" role="button"   accept=".pdf" (change)="onFileChange($event)" />
+                <input class="file-upload-input" type='file' [disabled]="disabled" id="fileUpload" role="button"   accept=".pdf" (change)="onFileChange($event)" />
                 <div class="drag-text">
                   <i class="fas fa-cloud-upload-alt upload-icon"></i>
                   <h3>Drag and drop a file or select   input file</h3>
@@ -55,5 +55,12 @@
             </div> 
         </div>
     </div>
+    <p *ngIf="isError4" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Invalid Request.</p>
+    <p *ngIf="success" class='success  d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Request completed successfully.</p>
+    <p *ngIf="error500" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Something went wrong.</p>
+    <p *ngIf="isError401" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please try again later.</p>
+    <p *ngIf="isError0" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Something went wrong. Please try again.</p>
+    <p *ngIf="isErrorNotPdf" class='error d-flex justify-content-center col-xl-11 col-lg-11 col-md-11 col-sm-10 col-10'> Please select only PDF files</p>
+
 </div>
 <app-footer ></app-footer>
