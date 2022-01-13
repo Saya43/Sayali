@@ -1,19 +1,23 @@
 
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+ import {Observable} from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompressService {
 compress='compress'
+compresspdf='compresspdf'
 accessToken:any
   constructor(private http:HttpClient) { }
 
   //during making http request add observable 
-  upload(dataSource:any):Observable<any> {
+  upload(dataSource:any,isChecked:any):Observable<any> {
     this.accessToken= sessionStorage.getItem('accessToken');
 
      const headers = { 'Authorization': `Bearer ${this.accessToken}`,
@@ -27,7 +31,15 @@ accessToken:any
       formData.append("file",data);
      
     }
-    return this.http.post(environment.apiUrl+this.compress, formData,{'headers':headers,responseType:'blob'})
+    if(isChecked===true){
+      return this.http.post(environment.apiUrl+this.compress, formData,{'headers':headers,responseType:'blob'}).pipe(catchError(this.errorHandler))
+    }
+    else{
+      return this.http.post(environment.apiUrl+this.compresspdf, formData,{'headers':headers,responseType:'blob'}).pipe(catchError(this.errorHandler))
+    }
     
 }
+  errorHandler(error: HttpErrorResponse) {
+    return throwError(error || "server error.");
+  }
 }

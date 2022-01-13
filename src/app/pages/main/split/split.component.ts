@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SplitService } from '../../../services/Split/split.service'
@@ -31,12 +31,6 @@ export class SplitComponent implements OnInit, OnDestroy {
   ranges: any;
   myFiles: any;
   isLoading = false;
-  success: boolean = false;
-  isError0: boolean = false;
-  isError4: boolean = false;
-  isError401: boolean = false;
-  isErrorNotPdf:boolean=false;
-  error500: boolean = false;
   isShown: boolean = false; // hidden by default
   dataSource = ELEMENT_DATA;
   bestPractices: any = [];
@@ -45,7 +39,7 @@ export class SplitComponent implements OnInit, OnDestroy {
   disabled: boolean = false;
   invalidFormatValidation: any = ValidationMessages.invalidRange;
   //changes made here
-  constructor(private httpClient: HttpClient, private uploadService: SplitService, private authservice: AuthService,private _snackBar: MatSnackBar) { }
+  constructor(private httpClient: HttpClient, private uploadService: SplitService, private authservice: AuthService,private _snackBar: MatSnackBar,private ngZone: NgZone) { }
   /**
   * Show loader screen
   */
@@ -109,12 +103,7 @@ export class SplitComponent implements OnInit, OnDestroy {
       }
     }
     if (hasInvalidFiles) {
-      //this.selectedFile.value = ""; 
-      // alert("asdas","Unsupported file selected.");
       this.snackBarFailure("Please select only PDF files")
-      // this.isErrorNotPdf = true
-      // this.wait(3000).then(() => this.isErrorNotPdf = false);
-      // return;
     }
 
 
@@ -204,33 +193,32 @@ export class SplitComponent implements OnInit, OnDestroy {
             this.stop();
           },
           (err) => {
-            // if (err.status == 0) {
-
-            //   this.isError0 = true
-            //   this.wait(5000).then(() => this.isError0 = false);
-
-            // }
-            // if (err.status == 401) {
-            //   this.authservice.authenticateUser().subscribe(res => {
-            //     sessionStorage.setItem('accessToken', res.token)
-            //   })
-            //   this.isError401 = true
-            //   this.wait(3000).then(() => this.isError401 = false);
-
-            // }
-            // if (err.status == 400) {
-
-            //   this.isError4 = true
-            //   this.wait(5000).then(() => this.isError4 = false);
-
-            // }
-
-            // if (err.status == 500) {
-            //   this.error500 = true
-            //   this.wait(2000).then(() => this.error500 = false);
-
-            // }
-            this.snackBarFailure(err)
+            var errorMessage1:any
+            // console.log(err)
+            var reader = new FileReader();
+            reader.onloadend = (e)  => {
+              this.ngZone.run(() => {
+                errorMessage1 = JSON.parse((<any>e.target).result)
+                this._snackBar.open(errorMessage1.message,'', {
+                  duration: 3000,
+                  });
+                  $(".mat-snack-bar-container").css({
+                    'background-color': 'red',
+                    'color':'white' 
+                
+                  });
+                  $(".mat-simple-snackbar span").css({
+                    'font-weight': '500'
+                  });
+              })
+      
+            }
+            reader.readAsText(err.error);
+            if (err.status == 401) {
+              this.authservice.authenticateUser().subscribe(res => {
+                sessionStorage.setItem('accessToken', res.token)
+              })
+            }
             this.stop();
           }
         )

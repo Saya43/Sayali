@@ -1,10 +1,11 @@
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import  {  HttpClient  }  from  '@angular/common/http';
 import  {  FormGroup,  FormControl,FormBuilder,  Validators}  from  '@angular/forms';
 import{CompressService} from '../../../services/Compress/compress.service'
 import { AuthService } from '../../../services/auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 interface Compress{
   lastModified: any,
@@ -31,19 +32,13 @@ export  class  CompressComponent implements OnInit,OnDestroy {
   disabled:boolean=false;
   submit:boolean=false
   isChecked:boolean = true;
+  previousState:boolean=true;
   isLoading=false;
-  success:boolean=false;
-  isError4:boolean=false;
   isError401:boolean=false;
-  isError0: boolean=false;
-  isErrorNotJpg:boolean=false;
-  isErrorNotPdf:boolean=false;
-  error500:boolean=false;
   isShown: boolean = false ; // hidden by default
   Compresser: string='Image';
   compress: string[] = ['PDF', 'Image'];
-status:any=2;
-statusId:any=2;
+
 
 
   dataSource = ELEMENT_DATA;
@@ -51,25 +46,8 @@ statusId:any=2;
     file:  new  FormControl('',  [Validators.required])
     
   });
-  filterByStatus: any = [
-    {
-      "name": 'PDF',
-      "checked": false,
-      "id": 1,
-      "disabled":false
-    },
 
-    {
-      "name": 'Image',
-      "checked": true,
-      "id": 2,
-      "disabled":false
-    }
-];
-
-
-
-constructor(private httpClient:  HttpClient,private uploadService: CompressService,private authservice:AuthService,private _snackBar: MatSnackBar)  {  }
+constructor(private httpClient:  HttpClient,private uploadService: CompressService,private authservice:AuthService,private _snackBar: MatSnackBar, private ngZone: NgZone)  {  }
   // show loader
   pageLoader() {
     this.isLoading = true;
@@ -116,9 +94,20 @@ snackBarFailure(err:any){
   });
 }
 
+toggle(event:any){
+    this.isShown=false
+    this.files=[]
+    this.dataSource=[]
+    ELEMENT_DATA=[]
+    this.disabled=false
+
+}
+
   //input file selection function
   onFileChange(event:any){
-      if(this.isChecked==true){
+      var flag=false
+      
+      if(this.isChecked==true){ 
         var allowedExtension = ".jpg";
         var allowedExtension2 = ".jpeg";
         var hasInvalidFiles = false;
@@ -126,11 +115,10 @@ snackBarFailure(err:any){
           var name = event.target.files[i].name;
           if (!name.endsWith(allowedExtension) && !name.endsWith(allowedExtension2)) {
           hasInvalidFiles = true;
+          flag=true
         }
       }
       if (hasInvalidFiles) {
-        //this.selectedFile.value = ""; 
-        // alert("asdas","Unsupported file selected.");
         this.snackBarFailure("Please select only JPG/JPEG files")
         // this.isErrorNotJpg = true
         // this.wait(3000).then(() => this.isErrorNotJpg = false);
@@ -144,17 +132,17 @@ snackBarFailure(err:any){
         var name = event.target.files[i].name;
         if (!name.endsWith(allowedExtension)) {
           hasInvalidFiles = true;
+          flag=true
         }
       }
       if (hasInvalidFiles) {
-        //this.selectedFile.value = ""; 
-        // alert("asdas","Unsupported file selected.");
         this.snackBarFailure("Please select only PDF files")
         // this.isErrorNotPdf = true
         // this.wait(3000).then(() => this.isErrorNotPdf = false);
         // return;
       }
     }
+    if(flag==false){
       for  (var i =  0; i <  event.target.files.length; i++)  {  
         var name = event.target.files[i].name;
         var type = event.target.files[i].type;
@@ -164,7 +152,7 @@ snackBarFailure(err:any){
         ELEMENT_DATA.push(event.target.files[i]);
 
       }
-      
+    
       this.disabled=true
   
       if(this.isShown===true){
@@ -173,25 +161,17 @@ snackBarFailure(err:any){
       else{
         this.isShown= !this.isShown
       }
-      this.dataSource = [...ELEMENT_DATA];
-    }
-
-    filterStatusOptions($event: any){
-      console.log($event)
-      this.isShown=false
-      this.files=[]
-      this.dataSource=[]
-      ELEMENT_DATA=[]
-      this.disabled=false    
-      this.statusId=$event.value
-      
   
+    
+        this.dataSource = [...ELEMENT_DATA];
     }
 
+}
+  
   //file upload function
   submitForm(){
     this.start();
-    this.uploadService.upload(this.dataSource).subscribe(
+    this.uploadService.upload(this.dataSource,this.isChecked).subscribe(
       (event) => 
       {
         let url = window.URL.createObjectURL(event);
@@ -207,12 +187,14 @@ snackBarFailure(err:any){
           var mm=String(today.getMinutes()).padStart(2, '0');
           var ss=String(today.getSeconds()).padStart(2, '0');
           var datetime= dd+MM+yyyy+hh+mm+ss;
-        a.download = 'compressed_' + datetime+'.jpg';
-        // if(event.status=200){
-        //   this.success=true
-        //   this.wait(3000).then( () => this.success = false );
+          if(this.isChecked==true){
+            a.download = 'compressed_' + datetime+'.jpg';
+          }
+          else{
+            a.download = 'compressed_' + datetime+'.pdf';
 
-        // }
+          }
+      
         this.snackBarSuccess("Compressed Successfully")
         this.isShown=false
         this.files=[]
@@ -226,7 +208,27 @@ snackBarFailure(err:any){
         this.stop();
 
       },(err)=>{
-        
+        var errorMessage1:any
+        // console.log(err)
+        var reader = new FileReader();
+        reader.onloadend = (e)  => {
+          this.ngZone.run(() => {
+            errorMessage1 = JSON.parse((<any>e.target).result)
+            this._snackBar.open(errorMessage1.message,'', {
+              duration: 3000,
+              });
+              $(".mat-snack-bar-container").css({
+                'background-color': 'red',
+                'color':'white' 
+            
+              });
+              $(".mat-simple-snackbar span").css({
+                'font-weight': '500'
+              });
+          })
+  
+        }
+        reader.readAsText(err.error);
         if(err.status==401){
           this.authservice.authenticateUser().subscribe(res => {
             sessionStorage.setItem('accessToken', res.token)
@@ -234,23 +236,6 @@ snackBarFailure(err:any){
             // this.isError401=true
             // this.wait(3000).then( () => this.isError401 = false );
         }
-     
-      //   if(err.status==0){
-                    
-      //     this.isError0=true
-      //     this.wait(5000).then( () => this.isError0 = false );
-
-      //   }
-      //  if(err.status==400){
-      //     this.isError4=true
-      //     this.wait(2000).then( () => this.isError4 = false );
-
-      //   }
-      //   if(err.status==500){
-      //     this.error500=true
-      //     this.wait(2000).then( () => this.error500 = false );
-      //   }
-      this.snackBarFailure(err)
         this.stop(); 
       },
 

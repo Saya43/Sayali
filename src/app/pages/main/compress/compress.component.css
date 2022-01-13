@@ -1,5 +1,4 @@
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 .fileicon{
   display: flex;
@@ -20,10 +19,7 @@
   font-size: 50px;
   margin-top: 30px; 
 }
-/* .example-form mat-slide-toggle {
-  margin: 8px 0;
-  display: block;
-} */
+
 
 .demo1{
   text-align: center;
@@ -50,7 +46,13 @@
     display: flex;
 }
 
-
+.inputText{
+  padding-right:10px;
+}
+.toggle{
+  display: flex;
+  font-family: 'WorkSans-Regular';
+}
 @media screen and (min-width: 1024px){
   .media{
     font-size:40px !important;

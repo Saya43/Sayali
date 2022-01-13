@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { onMainContentChange } from 'src/app/shared';
 import { SidenavService } from '../../services/sidenav/sidenav.service';
@@ -59,7 +59,7 @@ snackBarFailure(err:any){
     'font-weight': '500'
   });
 }
-  constructor(private _sidenavService: SidenavService,private authservice:AuthService,private _snackBar: MatSnackBar) {
+  constructor(private _sidenavService: SidenavService,private authservice:AuthService,private _snackBar: MatSnackBar,private ngZone: NgZone) {
     this.sideNavChange = this._sidenavService.sideNavState$.subscribe( res => {
       this.onSideNavChange = res;
     })
@@ -82,6 +82,27 @@ snackBarFailure(err:any){
     },
     
     (err)=>{
+      var errorMessage1:any
+      // console.log(err)
+      var reader = new FileReader();
+      reader.onloadend = (e)  => {
+        this.ngZone.run(() => {
+          errorMessage1 = JSON.parse((<any>e.target).result)
+          this._snackBar.open(errorMessage1.message,'', {
+            duration: 3000,
+            });
+            $(".mat-snack-bar-container").css({
+              'background-color': 'red',
+              'color':'white' 
+          
+            });
+            $(".mat-simple-snackbar span").css({
+              'font-weight': '500'
+            });
+        })
+
+      }
+      reader.readAsText(err.error);
         if(err.status==401){
           this.authservice.authenticateUser().subscribe(res => {
             sessionStorage.setItem('accessToken', res.token)

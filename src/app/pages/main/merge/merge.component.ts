@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit ,ViewChild} from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit ,ViewChild} from '@angular/core';
 import  {  HttpClient  }  from  '@angular/common/http';
 import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDragHandle} from '@angular/cdk/drag-drop';
 import {MatTable} from '@angular/material/table';
@@ -36,11 +36,6 @@ export class MergeComponent implements OnInit,OnDestroy {
   files:string  []  =  [];
   myFiles: any;
   isLoading=false;
-  success:boolean=false;
-  isError0:boolean=false;
-  isError4:boolean=false;
-  isErrorNotPdf:boolean=false;
-  error500:boolean=false;
   isError401:boolean=false;
   isShown: boolean = false ;// hidden by default
   totalCount:number;
@@ -53,7 +48,7 @@ export class MergeComponent implements OnInit,OnDestroy {
      file:  new  FormControl('',  [Validators.required])
   });
  
-  constructor(private http: HttpClient,private uploadService: MergeService,private authservice:AuthService,private _snackBar: MatSnackBar)  { 
+  constructor(private http: HttpClient,private uploadService: MergeService,private authservice:AuthService,private _snackBar: MatSnackBar, private ngZone: NgZone)  { 
    
    }
  /**
@@ -192,8 +187,8 @@ onFileChange(event:any)  {
   if(hasInvalidFiles) {
     //this.selectedFile.value = ""; 
    // alert("asdas","Unsupported file selected.");
-   this.snackBarFailure('Please select only PDF File')
-
+    this.snackBarFailure('Please select only PDF File')
+ 
     // this.isErrorNotPdf=true
     //     this.wait(3000).then( () => this.isErrorNotPdf = false );
     // return;
@@ -294,28 +289,34 @@ submitForm(){
         var ss=String(today.getSeconds()).padStart(2, '0');
         var datetime= dd+MM+yyyy+hh+mm+ss;
         a.download = 'merged_' +datetime+'.pdf';
-      
-        // if(event.status=200){
-        //   this.success=true
-        //   this.wait(3000).then( () => this.success = false );
-        // }
         a.click();
         window.URL.revokeObjectURL(url);
         a.remove();
         //this.snackBarSuccess(err)
-        console.log(event)
         this.snackBarSuccess('Merged Successfully')
         this.stop();
     },(err)=>{
-   
-      console.log(err)
-    this.snackBarFailure(err)
-      // if(err.status==0){
-                    
-      //   this.isError0=true
-      //   this.wait(5000).then( () => this.isError0 = false );
+      var errorMessage1:any
+      // console.log(err)
+      var reader = new FileReader();
+      reader.onloadend = (e)  => {
+        this.ngZone.run(() => {
+          errorMessage1 = JSON.parse((<any>e.target).result)
+          this._snackBar.open(errorMessage1.message,'', {
+            duration: 3000,
+            });
+            $(".mat-snack-bar-container").css({
+              'background-color': 'red',
+              'color':'white' 
+          
+            });
+            $(".mat-simple-snackbar span").css({
+              'font-weight': '500'
+            });
+        })
 
-      // }
+      }
+      reader.readAsText(err.error);
       if(err.status==401){
         this.authservice.authenticateUser().subscribe(res => {
           sessionStorage.setItem('accessToken', res.token)
@@ -323,16 +324,6 @@ submitForm(){
           // this.isError401=true
           // this.wait(3000).then( () => this.isError401 = false );
       }
-      // if(err.status==400){
-      //   this.isError4=true
-      //   this.wait(3000).then( () => this.isError4 = false );
-      // }
-      // if(err.status==500){
-
-      //   this.error500=true
-      //   this.wait(2000).then( () => this.error500 = false );
-
-      // }
        this.stop();
     },
 

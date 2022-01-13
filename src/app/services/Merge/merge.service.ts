@@ -34,8 +34,7 @@ accessToken:any
     }
 
    errorHandler(error: HttpErrorResponse) {
-        console.log(error.message)
-        return throwError(error.message || "server error.");
+        return throwError(error || "server error.");
     }
 
 }
